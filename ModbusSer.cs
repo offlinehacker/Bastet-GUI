@@ -3,50 +3,22 @@ using System.Collections.Generic;
 using System.IO.Ports;
 using System.Threading;
 using NUnit.Framework;
+using Modbus.Device;
 
 namespace TROL_MgmtGui2
 {
-    class Packet
-    {
-        private Byte[] data;
-        public Byte[] Data
-        {
-            get { return data; }
-        }
-
-        public Packet(Byte[] Data)
-        {
-            data = Data;
-        }
-    }
-
     /// <summary>
-    /// Class for handling serial connections.
+    /// Class for handling modbus connections over serial bus.
     /// </summary>
-    class Serial: LinkLayer
+    class ModbusSer : SerialBase
     {
-        private const Int32 ReadTimeout = 30000; //1000 1 second
-        private const Int32 WriteTimeout = 30000; //1000 1 second
-        private const Int32 BaudRate = 9600;
-
-        private SerialPort sp= new SerialPort();
-        private Boolean shutdownThread;
-        private Queue<Packet> packets = new Queue<Packet>();
-        private volatile Boolean ackReceived = true;
-
-        Thread serThread;
-
         /// <summary>
-        /// Returns list of all serial ports available.
+        /// Handler for modbus protocol.
         /// </summary>
-        /// <returns>List of all serial ports avalible.</returns>
-        public override String[] GetAvailablePorts()
-        {
-            return SerialPort.GetPortNames();
-        }
+        private IModbusSerialMaster cModbusSerialMaster;
 
         /// <summary>
-        /// Opens serial port and starts working thread.
+        /// Opens serial port, registers it with modbus handler and starts working thread.
         /// </summary>
         /// <param name="PortName">Name of the port gatherd by GetAvailablePorts.</param>
         public override bool Open(String PortName)
@@ -65,6 +37,8 @@ namespace TROL_MgmtGui2
             sp.WriteTimeout = WriteTimeout;
             //sp.NewLine = "\n";
 
+            cModbusSerialMaster = ModbusSerialMaster.CreateRtu(sp);
+
             serThread = new Thread(serialThread);
             serThread.Name = "Serial communication thread";
             serThread.Start();
@@ -72,72 +46,12 @@ namespace TROL_MgmtGui2
             return true;
         }
 
-        /// <summary>
-        /// Close the thread.
-        /// </summary>
-        public override void Close()
-        {
-            shutdownThread = true;
-            if(sp.IsOpen && serThread!=null)
-                serThread.Join();
-            sp.Close();
-        }
-
-        /// <summary>
-        /// Writes data to serial port (adds a packet to the queue).
-        /// For every message sent, device need to send back acknowledge command,
-        /// otherwise thread will send only one message.
-        /// </summary>
-        /// <param name="Data">Data to be sent.</param>
-        public override void Write(Byte[] Data)
-        {
-            if (!sp.IsOpen)
-                return;
-
-            Packet pckt = new Packet(Data);
-
-            lock (packets)
-            {
-                packets.Enqueue(pckt);
-                Monitor.Pulse(packets);
-            }
-        }
-
-        /// <summary>
-        /// Signal the thread that device acknowledged previous message.
-        /// </summary>
-        public override void AckReceived()
-        {
-            ackReceived = true;
-        }
-
-        /// <summary>
-        /// Info about acknowlegement of previous message
-        /// </summary>
-        public override bool IsAckReceived()
-        {
-            return ackReceived == true;
-        }
-        
-        public void TestCallback()
-        {
-            object tmp=null;
-            int tmp2=0;
-            cDataReceivedDelegate(null, ref tmp, ref tmp2);
-        }
-
-        public void TestCallback2()
-        {
-            object tmp = null;
-            int tmp2 = 0;
-            cDataReceivedDelegate(BinarySerializerTest.SumByteArrays(BinarySerializerTest.GetData(100, typeof(Byte)),BinarySerializerTest.GetData(0, typeof(Byte)),BinarySerializerTest.GetData(10, typeof(UInt16)),BinarySerializerTest.GetData(20, typeof(UInt32))), ref tmp, ref tmp2);
-        }
-
+            
 
         #region serialThread
-        private void serialThread()
+        private override void serialThread()
         {
-            Packet pckt;
+            BPPacket pckt;
             Byte[] txBuf = new Byte[80];
 
             Byte[] rxBuf = new Byte[80];
@@ -160,27 +74,20 @@ namespace TROL_MgmtGui2
                     return;
                 }
 
-                // We can send a new packet via serial, only when a device
-                // on the other end of the line acknowledges the previous packet.
-                // Anyone who listens for event PacketReceived must call the function
-                // AckReceived to signal this thread that device acknowledged previous msg.
-                if (ackReceived == true)
+                if (packets.Count != 0)
                 {
-                    if (packets.Count != 0)
-                    {
-                      lock (packets)
-                        pckt = packets.Dequeue();
-                      //sp.Write(pckt.Data, 0, pckt.Data.Length);
-                      //sp.Write("\n");
-                      txBuf[0] = (byte)pckt.Data.Length;
-                      Buffer.BlockCopy(pckt.Data, 0, txBuf, 1, pckt.Data.Length);
-                      sp.Write(txBuf, 0, pckt.Data.Length+1);
+                    lock (packets)
+                    pckt = packets.Dequeue();
+                    //sp.Write(pckt.Data, 0, pckt.Data.Length);
+                    //sp.Write("\n");
+                    txBuf[0] = (byte)pckt.Data.Length;
+                    Buffer.BlockCopy(pckt.Data, 0, txBuf, 1, pckt.Data.Length);
+                    cModbusSerialMaster.WriteMultipleRegisters(pckt.
 
-                      rxBufNum = 0;
-                      rxFirstByte = true;
-                      rxMsgLen = 0; 
-                      ackReceived = false;
-                    }
+                    rxBufNum = 0;
+                    rxFirstByte = true;
+                    rxMsgLen = 0; 
+                    ackReceived = false;
                 }
 
                 // We don't want to hog up whole CPU
@@ -258,7 +165,7 @@ namespace TROL_MgmtGui2
         [TestCase]
         public void Test()
         {
-            Serial sr = new Serial();
+            ModbusSer sr = new ModbusSer();
             LinkLayer ll = (LinkLayer)sr;
             ll.SetReceiveHandler(new DataReceivedDelegate(testc));
             try

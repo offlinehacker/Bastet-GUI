@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.InteropServices;
+using System.Runtime.InteropServices; //For Sequential structure layout
 using System.Data;
 using NUnit.Framework;
 
@@ -38,13 +38,11 @@ namespace TROL_MgmtGui2
     [StructLayout(LayoutKind.Sequential)]
     struct BPProtocolHeader
     {
-        public Byte cLinkId;
         public Byte cOperationId;
 
-        public BPProtocolHeader(Byte lLinkId, Byte lOperationId)
+        public BPProtocolHeader(Byte lOperationId)
         {
             cOperationId = lOperationId;
-            cLinkId = lLinkId;
         }
     }
 
@@ -54,7 +52,7 @@ namespace TROL_MgmtGui2
 
         public BPProtocol()
         {
-            cStaticSerializer.SetSerializableTypes(new Type[] { typeof(BPProtocolHeader) });
+            cHeaderSerializer.SetSerializableTypes(new Type[] { typeof(BPProtocolHeader) });
         }
 
         public void AddOperation(BPOperation lOperation)
@@ -87,15 +85,17 @@ namespace TROL_MgmtGui2
             if (lOperation.cSendCode == -1)
                 return;
 
-            base.SerializeData(ref StreamToWrite, new object[] {new BPProtocolHeader((byte)LinkId, (byte)lOperation.cSendCode)});
+            //Serializes header data.
+            base.SerializeData(ref StreamToWrite, new object[] {new BPProtocolHeader((byte)lOperation.cSendCode)});
+
             //It allows us to send only a command if data is not set.
             if (data != null && lOperation.cUplinkSerializer!=null)
             {
-                Byte[] SerializedData = lOperation.cUplinkSerializer.ExportBinaryData(data);
+                Byte[] SerializedData = lOperation.cUplinkSerializer.SerializeData(data);
                 StreamToWrite.Write(SerializedData, 0, SerializedData.Count());
             }
 
-            cLinkLayer.Write(StreamToWrite.ToArray());
+            cLinkLayer.Write(LinkId, StreamToWrite.ToArray());
         }
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace TROL_MgmtGui2
             object[] DeserializedData = null;
             if (lOperation.cDownlinkSerializer != null)
             {
-                DeserializedData = lOperation.cDownlinkSerializer.ImportBinaryData(data, DataOffset, ref DataOffset);
+                DeserializedData = lOperation.cDownlinkSerializer.DeserializeData(data, DataOffset, ref DataOffset);
                 if (DeserializedData == null) return;
             }
 
@@ -134,7 +134,7 @@ namespace TROL_MgmtGui2
         [TestCase]
         public void SimpleTest()
         {
-            Serial sr = new Serial();
+            RawSerial sr = new RawSerial();
             BPProtocol bp = new BPProtocol();
             bp.SetLinkLayer(sr);
             bp.AddOperation(new BPOperation("test", 0, 1, new BinarySerializer(new Type[] { typeof(UInt16), typeof(UInt32) }), new BinarySerializer(new Type[] { typeof(UInt16), typeof(UInt32) }), new ProcessReceivedData(DataLayerRecvCallback)));

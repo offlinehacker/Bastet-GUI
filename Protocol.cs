@@ -9,12 +9,15 @@ namespace TROL_MgmtGui2
 {
     class ProtocolLayer
     {
-        protected BinarySerializer cStaticSerializer = new BinarySerializer();
+        /// <summary>
+        /// Serializer for static header data.
+        /// </summary>
+        protected BinarySerializer cHeaderSerializer = new BinarySerializer();
         protected LinkLayer cLinkLayer;
 
         public void SetStaticSerializer(BinarySerializer lStaticSerializer)
         {
-            cStaticSerializer= lStaticSerializer;
+            cHeaderSerializer= lStaticSerializer;
         }
 
         /// <summary>
@@ -29,7 +32,7 @@ namespace TROL_MgmtGui2
 
         public virtual void SerializeData( ref MemoryStream StreamToWrite, object[] DataToSerialize )
         {
-            Byte[] tdata = cStaticSerializer.ExportBinaryData(DataToSerialize);
+            Byte[] tdata = cHeaderSerializer.SerializeData(DataToSerialize);
             StreamToWrite.Write(tdata,0,tdata.Count());
         }
 
@@ -39,7 +42,7 @@ namespace TROL_MgmtGui2
         /// <param name="data">Received data</param>
         public virtual void LinkLayerCallback(Byte[] data, ref object ProcessedData, ref int DataOffset)
         {
-            ProcessedData = cStaticSerializer.ImportBinaryData(data, DataOffset, ref DataOffset);
+            ProcessedData = cHeaderSerializer.DeserializeData(data, DataOffset, ref DataOffset);
         }
     }
 
@@ -76,8 +79,9 @@ namespace TROL_MgmtGui2
         /// <summary>
         /// Writes data to link layer.
         /// </summary>
+        /// <param name="LinkId">Adress of the device.</param>
         /// <param name="Data">Data to be written.</param>
-        public virtual void Write(Byte[] Data) { }
+        public virtual void Write(int LinkId, Byte[] Data) { }
         /// <summary>
         /// Signal the thread that device acknowledged previous message.
         /// </summary>

@@ -12,7 +12,7 @@ namespace TROL_MgmtGui2
     class BastetCommunication
     {
         private BPProtocol cBPPRotocol;
-        private Serial cSerial;
+        private RawSerial cSerial;
         private Devices cDevices;
         private Form1 cForm1;//Form for invoking gui actions
 
@@ -28,7 +28,7 @@ namespace TROL_MgmtGui2
         /// <returns>True on succesfully open communication, false otherwise.</returns>
         public bool Open()
         {
-            cSerial = new Serial();
+            cSerial = new RawSerial();
             string lSelectedSerialPort="";
             frmSelectSerPort lSelectSerialPort = new frmSelectSerPort(cSerial);
             lSelectSerialPort.ShowDialog();

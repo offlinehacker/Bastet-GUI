@@ -10,7 +10,7 @@ namespace TROL_MgmtGui2
 {
     partial class frmSelectSerPort : Form
     {
-        private Serial cSerial= null;
+        private RawSerial cSerial= null;
         /// <summary>
         /// Gets currently selected port name.
         /// </summary>
@@ -22,7 +22,7 @@ namespace TROL_MgmtGui2
             }
         }
 
-        public frmSelectSerPort( Serial lSerial)
+        public frmSelectSerPort( RawSerial lSerial)
         {
             cSerial = lSerial;
             InitializeComponent();

@@ -15,6 +15,9 @@ namespace TROL_MgmtGui2
     class VarUInt16{}
     class VarUInt32{}
 
+    /// <summary>
+    /// Class for serializing and deserializing binary data based on input types.
+    /// </summary>
     class BinarySerializer
     {
         Type[] cSerializableTypes = new Type[] { };
@@ -26,14 +29,23 @@ namespace TROL_MgmtGui2
             cSerializableTypes = lSerializableTypes;
         }
 
+        /// <summary>
+        /// Sets instruction how to serialize based on types.
+        /// </summary>
+        /// <param name="lSerializableTypes">List of types for sequential serialization.</param>
         public void SetSerializableTypes(Type[] lSerializableTypes)
         {
             cSerializableTypes = lSerializableTypes;
         }
 
-        public virtual Byte[] ExportBinaryData(object lOutputDatax)
+        /// <summary>
+        /// Serializes passed objects.
+        /// </summary>
+        /// <param name="lSerializableData">Data you want to serialize as <see cref="object[]"/></param>
+        /// <returns>Serialized data as <see cref="Byte[]"/></returns>
+        public virtual Byte[] SerializeData(object lSerializableData)
         {
-            object[] lOutputData = (object[])lOutputDatax;
+            object[] lOutputData = (object[])lSerializableData;
             MemoryStream lStream = new MemoryStream();
             uint ManyParse = 0;
 
@@ -71,6 +83,11 @@ namespace TROL_MgmtGui2
                         if (StringByte == null) return null;
                         lStream.Write(StringByte, 0, StringByte.Count());
                         break;
+                    case "Byte[]":
+                        Byte[] DataByte= (Byte[])data;
+                        if(data==null) return null;
+                        lStream.Write(DataByte, 0, DataByte.Length);
+                        break;
                     default:
                         object ConvertedData = Convert.ChangeType(data, CurrentType);
                         if (ConvertedData == null) return null;
@@ -85,7 +102,14 @@ namespace TROL_MgmtGui2
             return lStream.ToArray();
         }
 
-        public virtual object[] ImportBinaryData(Byte[] lInputData, int InitalOffset, ref int NewOffset)
+        /// <summary>
+        /// Deserializes passed binary data.
+        /// </summary>
+        /// <param name="lInputData"><see cref="Byte[]"/> of data you want to serialize.</param>
+        /// <param name="InitalOffset">Offset where you want to start serialization as <see cref="int"/></param>
+        /// <param name="NewOffset"Offset where serialization ended as <see cref="int"/></param>
+        /// <returns>Serialized objects as <see cref="object[]"/></returns>
+        public virtual object[] DeserializeData(Byte[] lInputData, int InitalOffset, ref int NewOffset)
         {
             int offset = InitalOffset;
             List<object> OutputStructures = new List<object>();
@@ -117,10 +141,15 @@ namespace TROL_MgmtGui2
                 switch (CurrentType.Name)
                 {
                     case "String":
-                        string data = ByteArrayToString(lInputData.Skip(offset).ToArray());
-                        if (data == null) return null;
-                        OutputStructures.Add(data);
-                        loffset = data.Length + 1;
+                        string strdata = ByteArrayToString(lInputData.Skip(offset).ToArray());
+                        if (strdata == null) return null;
+                        OutputStructures.Add(strdata);
+                        loffset = strdata.Length + 1;
+                        break;
+                    case "Byte[]":
+                        Byte[] bytedata = lInputData.Skip(offset).ToArray();
+                        OutputStructures.Add(bytedata);
+                        loffset = bytedata.Length;
                         break;
                     default:
                         object result = ByteArrayToStructure(lInputData.Skip(offset).ToArray(), CurrentType, ref loffset);
@@ -221,7 +250,7 @@ namespace TROL_MgmtGui2
             SetSerializableTypes(table);
         }
 
-        public override Byte[] ExportBinaryData(object lOutputData)
+        public override Byte[] SerializeData(object lOutputData)
         {
             object[] tOutputData = (object[])lOutputData;
             object[] lRowData = ((DataRow)tOutputData[0]).ItemArray;
@@ -230,7 +259,7 @@ namespace TROL_MgmtGui2
             {
                 lSerializableData.Add(lRowData[x]);
             }
-            return base.ExportBinaryData(lSerializableData.ToArray());
+            return base.SerializeData(lSerializableData.ToArray());
         }
 
         public void SetSerializableTypes(DataTable table)
@@ -258,7 +287,7 @@ namespace TROL_MgmtGui2
         public void TestBasicExportSerialization()
         {
             BinarySerializer serializer = new BinarySerializer(new Type[] { typeof(UInt16) });
-            Byte[] output = serializer.ExportBinaryData(new object[] { 1 });
+            Byte[] output = serializer.SerializeData(new object[] { 1 });
             Assert.AreEqual(GetBinaryString(output), "0000000000000001");
         }
 
@@ -268,16 +297,16 @@ namespace TROL_MgmtGui2
             BinarySerializer serializer = new BinarySerializer();
 
             serializer.SetSerializableTypes(new Type[] { typeof(UInt16), typeof(UInt32) });
-            Byte[] output = serializer.ExportBinaryData(new object[] { 1, 100000 });
+            Byte[] output = serializer.SerializeData(new object[] { 1, 100000 });
             string CompareData = GetBinaryString(SumByteArrays(GetData(1, typeof(UInt16)), GetData(100000, typeof(UInt32))));
             Assert.AreEqual(GetBinaryString(output), CompareData);
 
             serializer.SetSerializableTypes(new Type[] { typeof(string) });
-            output = serializer.ExportBinaryData(new object[] { "abcd" });
+            output = serializer.SerializeData(new object[] { "abcd" });
             Assert.AreEqual(new byte[] { (byte)'a', (byte)'b', (byte)'c', (byte)'d', 0 }, output);
 
             serializer.SetSerializableTypes(new Type[] { typeof(string), typeof(Int16), typeof(UInt32), typeof(Int16), typeof(string) });
-            output = serializer.ExportBinaryData(new object[] { "abcd", 100, 100000, 900, "defghi" });
+            output = serializer.SerializeData(new object[] { "abcd", 100, 100000, 900, "defghi" });
             CompareData = GetBinaryString(SumByteArrays(new byte[] { (byte)'a', (byte)'b', (byte)'c', (byte)'d', 0 }, GetData(100, typeof(Int16)), GetData(100000, typeof(Int32)), GetData(900, typeof(Int16)), new byte[] { (byte)'d', (byte)'e', (byte)'f', (byte)'g', (byte)'h', (byte)'i', 0 }));
             Assert.AreEqual(GetBinaryString(output), CompareData);
         }
@@ -287,8 +316,8 @@ namespace TROL_MgmtGui2
         {
             int offset = 0;
             BinarySerializer serializer = new BinarySerializer(new Type[] { typeof(UInt16) });
-            Byte[] export = serializer.ExportBinaryData(new object[] { 1 });
-            object[] import = serializer.ImportBinaryData(export,0,ref offset);
+            Byte[] export = serializer.SerializeData(new object[] { 1 });
+            object[] import = serializer.DeserializeData(export,0,ref offset);
 
             Assert.AreEqual(new object[] { (UInt16)1 }, import);
             Assert.AreEqual(2, offset);
@@ -300,8 +329,8 @@ namespace TROL_MgmtGui2
             int offset = 0;
             BinarySerializer serializer = new BinarySerializer();
             serializer.SetSerializableTypes(new Type[] { typeof(string), typeof(Int16), typeof(UInt32), typeof(Int16), typeof(string) });
-            Byte[] export = serializer.ExportBinaryData(new object[] { "abcd", 100, 100000, 900, "defghi" });
-            object[] import = serializer.ImportBinaryData(export,0,ref offset);
+            Byte[] export = serializer.SerializeData(new object[] { "abcd", 100, 100000, 900, "defghi" });
+            object[] import = serializer.DeserializeData(export,0,ref offset);
 
             Assert.AreEqual(new object[] { "abcd", (UInt16)100, (UInt32)100000, (UInt16)900, "defghi" }, import, "defghi");
             Assert.AreEqual(20, offset);
@@ -314,17 +343,17 @@ namespace TROL_MgmtGui2
             serializer.SetSerializableTypes(new Type[] { typeof(VarByte), typeof(UInt16) });
             object[] TestData= new object[]{ 5, 1, 2, 3, 4, 5 };
 
-            Byte[] export = serializer.ExportBinaryData(TestData);
+            Byte[] export = serializer.SerializeData(TestData);
             int offset=0;
-            object[] import = serializer.ImportBinaryData(export, 0, ref offset);
+            object[] import = serializer.DeserializeData(export, 0, ref offset);
 
             Assert.AreEqual(TestData, import);
 
             serializer.SetSerializableTypes(new Type[] { typeof(VarUInt32), typeof(string), typeof(Int16), typeof(VarUInt16), typeof(Byte) });
             TestData = new object[] { 5, "a", "b", "c", "d", "e", 10, 3, 1, 2, 3 };
-            export = serializer.ExportBinaryData(TestData);
+            export = serializer.SerializeData(TestData);
             offset = 0;
-            import = serializer.ImportBinaryData(export, 0, ref offset);
+            import = serializer.DeserializeData(export, 0, ref offset);
 
             Assert.AreEqual(TestData, import);
         }
@@ -340,7 +369,7 @@ namespace TROL_MgmtGui2
         public static Byte[] GetData(object data, Type type)
         {
             BinarySerializer serializer = new BinarySerializer(new Type[] { type });
-            Byte[] output = serializer.ExportBinaryData(new object[] { data });
+            Byte[] output = serializer.SerializeData(new object[] { data });
             return output;
         }
 
