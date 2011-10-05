@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/325/trunk/NModbus/src/Modbus/Device
+END
+ModbusTcpSlave.cs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/303/trunk/NModbus/src/Modbus/Device/ModbusTcpSlave.cs
+END
+ModbusSlaveRequestEventArgs.cs
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/199/trunk/NModbus/src/Modbus/Device/ModbusSlaveRequestEventArgs.cs
+END
+ModbusMasterTcpConnection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus/Device/ModbusMasterTcpConnection.cs
+END
+ModbusUdpSlave.cs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus/Device/ModbusUdpSlave.cs
+END
+ModbusIpMaster.cs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/311/trunk/NModbus/src/Modbus/Device/ModbusIpMaster.cs
+END
+IModbusSerialMaster.cs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/206/trunk/NModbus/src/Modbus/Device/IModbusSerialMaster.cs
+END
+IModbusMaster.cs
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/325/trunk/NModbus/src/Modbus/Device/IModbusMaster.cs
+END
+ModbusSerialSlave.cs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus/Device/ModbusSerialSlave.cs
+END
+ModbusSlave.cs
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/325/trunk/NModbus/src/Modbus/Device/ModbusSlave.cs
+END
+ModbusMaster.cs
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus/Device/ModbusMaster.cs
+END
+ModbusSerialMaster.cs
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus/Device/ModbusSerialMaster.cs
+END
+TcpConnectionEventArgs.cs
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/296/trunk/NModbus/src/Modbus/Device/TcpConnectionEventArgs.cs
+END
+ModbusDevice.cs
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/303/trunk/NModbus/src/Modbus/Device/ModbusDevice.cs
+END

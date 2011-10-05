@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/299/trunk/NModbus/src/Modbus/Data
+END
+IModbusMessageDataCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/296/trunk/NModbus/src/Modbus/Data/IModbusMessageDataCollection.cs
+END
+DiscreteCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/287/trunk/NModbus/src/Modbus/Data/DiscreteCollection.cs
+END
+DataStoreFactory.cs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/287/trunk/NModbus/src/Modbus/Data/DataStoreFactory.cs
+END
+ModbusDataCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/287/trunk/NModbus/src/Modbus/Data/ModbusDataCollection.cs
+END
+RegisterCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/224/trunk/NModbus/src/Modbus/Data/RegisterCollection.cs
+END
+DataStoreEventArgs.cs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/296/trunk/NModbus/src/Modbus/Data/DataStoreEventArgs.cs
+END
+ModbusDataType.cs
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/287/trunk/NModbus/src/Modbus/Data/ModbusDataType.cs
+END
+DataStore.cs
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/299/trunk/NModbus/src/Modbus/Data/DataStore.cs
+END

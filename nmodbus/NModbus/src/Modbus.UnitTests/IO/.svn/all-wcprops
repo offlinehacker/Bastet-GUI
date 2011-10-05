@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus.UnitTests/IO
+END
+CrossPlatformUdpClientFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/IO/CrossPlatformUdpClientFixture.cs
+END
+ModbusTransportFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/262/trunk/NModbus/src/Modbus.UnitTests/IO/ModbusTransportFixture.cs
+END
+ModbusSerialTransportFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/IO/ModbusSerialTransportFixture.cs
+END
+UdpClientAdapterFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/IO/UdpClientAdapterFixture.cs
+END
+ModbusTcpTransportFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/296/trunk/NModbus/src/Modbus.UnitTests/IO/ModbusTcpTransportFixture.cs
+END
+CompactUdpClientFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/IO/CompactUdpClientFixture.cs
+END
+ModbusAsciiTransportFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/IO/ModbusAsciiTransportFixture.cs
+END
+ModbusRtuTransportFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus.UnitTests/IO/ModbusRtuTransportFixture.cs
+END

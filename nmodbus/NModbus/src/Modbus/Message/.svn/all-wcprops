@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/325/trunk/NModbus/src/Modbus/Message
+END
+IModbusRequest.cs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/287/trunk/NModbus/src/Modbus/Message/IModbusRequest.cs
+END
+WriteMultipleRegistersResponse.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/296/trunk/NModbus/src/Modbus/Message/WriteMultipleRegistersResponse.cs
+END
+WriteMultipleCoilsResponse.cs
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/296/trunk/NModbus/src/Modbus/Message/WriteMultipleCoilsResponse.cs
+END
+ModbusMessageImpl.cs
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/296/trunk/NModbus/src/Modbus/Message/ModbusMessageImpl.cs
+END
+ReadCoilsInputsRequest.cs
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/296/trunk/NModbus/src/Modbus/Message/ReadCoilsInputsRequest.cs
+END
+ModbusMessageWithData.cs
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/287/trunk/NModbus/src/Modbus/Message/ModbusMessageWithData.cs
+END
+ModbusMessageFactory.cs
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus/Message/ModbusMessageFactory.cs
+END
+ReadCoilsInputsResponse.cs
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/296/trunk/NModbus/src/Modbus/Message/ReadCoilsInputsResponse.cs
+END
+WriteSingleRegisterRequestResponse.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/296/trunk/NModbus/src/Modbus/Message/WriteSingleRegisterRequestResponse.cs
+END
+WriteSingleCoilRequestResponse.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/296/trunk/NModbus/src/Modbus/Message/WriteSingleCoilRequestResponse.cs
+END
+CustomMessageInfo.cs
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus/Message/CustomMessageInfo.cs
+END
+ModbusMessage.cs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/287/trunk/NModbus/src/Modbus/Message/ModbusMessage.cs
+END
+DiagnosticsRequestResponse.cs
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/298/trunk/NModbus/src/Modbus/Message/DiagnosticsRequestResponse.cs
+END
+ReadHoldingInputRegistersRequest.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/296/trunk/NModbus/src/Modbus/Message/ReadHoldingInputRegistersRequest.cs
+END
+IModbusMessageRtu.cs
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/325/trunk/NModbus/src/Modbus/Message/IModbusMessageRtu.cs
+END
+ReadWriteMultipleRegistersRequest.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/287/trunk/NModbus/src/Modbus/Message/ReadWriteMultipleRegistersRequest.cs
+END
+WriteMultipleRegistersRequest.cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/296/trunk/NModbus/src/Modbus/Message/WriteMultipleRegistersRequest.cs
+END
+IModbusMessage.cs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/296/trunk/NModbus/src/Modbus/Message/IModbusMessage.cs
+END
+ReadHoldingInputRegistersResponse.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/296/trunk/NModbus/src/Modbus/Message/ReadHoldingInputRegistersResponse.cs
+END
+SlaveExceptionResponse.cs
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/296/trunk/NModbus/src/Modbus/Message/SlaveExceptionResponse.cs
+END
+WriteMultipleCoilsRequest.cs
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/296/trunk/NModbus/src/Modbus/Message/WriteMultipleCoilsRequest.cs
+END

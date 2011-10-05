@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/325/trunk/NModbus/src/Modbus/IO
+END
+EmptyTransport.cs
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus/IO/EmptyTransport.cs
+END
+IStreamResource.cs
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/299/trunk/NModbus/src/Modbus/IO/IStreamResource.cs
+END
+CompactUdpClient.cs
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus/IO/CompactUdpClient.cs
+END
+ModbusAsciiTransport.cs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus/IO/ModbusAsciiTransport.cs
+END
+ModbusIpTransport.cs
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus/IO/ModbusIpTransport.cs
+END
+ModbusRtuTransport.cs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/325/trunk/NModbus/src/Modbus/IO/ModbusRtuTransport.cs
+END
+SerialPortAdapter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/287/trunk/NModbus/src/Modbus/IO/SerialPortAdapter.cs
+END
+CrossPlatformUdpClient.cs
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/299/trunk/NModbus/src/Modbus/IO/CrossPlatformUdpClient.cs
+END
+TcpClientAdapter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/303/trunk/NModbus/src/Modbus/IO/TcpClientAdapter.cs
+END
+ModbusSerialTransport.cs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/287/trunk/NModbus/src/Modbus/IO/ModbusSerialTransport.cs
+END
+ModbusTransport.cs
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus/IO/ModbusTransport.cs
+END
+StreamResourceUtility.cs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus/IO/StreamResourceUtility.cs
+END
+UdpClientAdapter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/299/trunk/NModbus/src/Modbus/IO/UdpClientAdapter.cs
+END
+FullUdpClient.cs
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/299/trunk/NModbus/src/Modbus/IO/FullUdpClient.cs
+END

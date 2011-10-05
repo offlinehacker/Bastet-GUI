@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/327/trunk/NModbus/src/Modbus.IntegrationTests
+END
+ModbusSerialMasterFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/226/trunk/NModbus/src/Modbus.IntegrationTests/ModbusSerialMasterFixture.cs
+END
+ModbusMasterFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/324/trunk/NModbus/src/Modbus.IntegrationTests/ModbusMasterFixture.cs
+END
+NModbusUsbAsciiMasterFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/308/trunk/NModbus/src/Modbus.IntegrationTests/NModbusUsbAsciiMasterFixture.cs
+END
+NModbusUsbRtuMasterNModbusSerialRtuSlaveFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/322/trunk/NModbus/src/Modbus.IntegrationTests/NModbusUsbRtuMasterNModbusSerialRtuSlaveFixture.cs
+END
+NModbusTcpMasterJamodTcpSlaveFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/322/trunk/NModbus/src/Modbus.IntegrationTests/NModbusTcpMasterJamodTcpSlaveFixture.cs
+END
+App.config
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/124/trunk/NModbus/src/Modbus.IntegrationTests/App.config
+END
+NModbusTcpSlaveFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/303/trunk/NModbus/src/Modbus.IntegrationTests/NModbusTcpSlaveFixture.cs
+END
+NModbusUdpSlaveFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/303/trunk/NModbus/src/Modbus.IntegrationTests/NModbusUdpSlaveFixture.cs
+END
+NModbusSerialAsciiMasterJamodSerialAsciiSlaveFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/322/trunk/NModbus/src/Modbus.IntegrationTests/NModbusSerialAsciiMasterJamodSerialAsciiSlaveFixture.cs
+END
+NModbusSerialRtuMasterFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/308/trunk/NModbus/src/Modbus.IntegrationTests/NModbusSerialRtuMasterFixture.cs
+END
+EnronFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/292/trunk/NModbus/src/Modbus.IntegrationTests/EnronFixture.cs
+END
+Modbus.IntegrationTests.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus.IntegrationTests/Modbus.IntegrationTests.csproj
+END
+NModbusTcpMasterNModbusTcpSlaveFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus.IntegrationTests/NModbusTcpMasterNModbusTcpSlaveFixture.cs
+END
+TestCases.cs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/310/trunk/NModbus/src/Modbus.IntegrationTests/TestCases.cs
+END
+NModbusSerialAsciiMasterNModbusSerialAsciiSlaveFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/322/trunk/NModbus/src/Modbus.IntegrationTests/NModbusSerialAsciiMasterNModbusSerialAsciiSlaveFixture.cs
+END
+NModbusUdpMasterNModbusUdpSlaveFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/234/trunk/NModbus/src/Modbus.IntegrationTests/NModbusUdpMasterNModbusUdpSlaveFixture.cs
+END
+NModbusUsbRtuMasterFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/308/trunk/NModbus/src/Modbus.IntegrationTests/NModbusUsbRtuMasterFixture.cs
+END
+NModbusUsbAsciiNModbusSerialAsciiFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/234/trunk/NModbus/src/Modbus.IntegrationTests/NModbusUsbAsciiNModbusSerialAsciiFixture.cs
+END
+NModbusSerialAsciiMasterFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/308/trunk/NModbus/src/Modbus.IntegrationTests/NModbusSerialAsciiMasterFixture.cs
+END
+NModbusSerialRtuMasterNModbusSerialRtuSlaveFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/322/trunk/NModbus/src/Modbus.IntegrationTests/NModbusSerialRtuMasterNModbusSerialRtuSlaveFixture.cs
+END
+FtdUsbPortAdapterFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/241/trunk/NModbus/src/Modbus.IntegrationTests/FtdUsbPortAdapterFixture.cs
+END
+NModbusSerialRtuSlaveFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/308/trunk/NModbus/src/Modbus.IntegrationTests/NModbusSerialRtuSlaveFixture.cs
+END
+ModbusIpMasterFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/307/trunk/NModbus/src/Modbus.IntegrationTests/ModbusIpMasterFixture.cs
+END
+NModbusSerialRtuMasterDl06SlaveFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/322/trunk/NModbus/src/Modbus.IntegrationTests/NModbusSerialRtuMasterDl06SlaveFixture.cs
+END

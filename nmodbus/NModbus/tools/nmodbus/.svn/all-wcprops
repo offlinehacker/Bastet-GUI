@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/126/trunk/NModbus/tools/nmodbus
+END
+TestDriver.cs
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/126/trunk/NModbus/tools/nmodbus/TestDriver.cs
+END
+Modbus.dll
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/126/trunk/NModbus/tools/nmodbus/Modbus.dll
+END
+log4net.dll
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/126/trunk/NModbus/tools/nmodbus/log4net.dll
+END
+TestDriver.exe
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/126/trunk/NModbus/tools/nmodbus/TestDriver.exe
+END

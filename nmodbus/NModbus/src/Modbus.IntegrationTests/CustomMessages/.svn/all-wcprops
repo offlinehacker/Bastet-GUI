@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/327/trunk/NModbus/src/Modbus.IntegrationTests/CustomMessages
+END
+CustomReadHoldingRegistersRequest.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/322/trunk/NModbus/src/Modbus.IntegrationTests/CustomMessages/CustomReadHoldingRegistersRequest.cs
+END
+CustomFoobarRequest.cs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/327/trunk/NModbus/src/Modbus.IntegrationTests/CustomMessages/CustomFoobarRequest.cs
+END
+CustomWriteMultipleRegistersRequest.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus.IntegrationTests/CustomMessages/CustomWriteMultipleRegistersRequest.cs
+END
+CustomReadHoldingRegistersResponse.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/322/trunk/NModbus/src/Modbus.IntegrationTests/CustomMessages/CustomReadHoldingRegistersResponse.cs
+END
+CustomFoobarResponse.cs
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/327/trunk/NModbus/src/Modbus.IntegrationTests/CustomMessages/CustomFoobarResponse.cs
+END
+CustomWriteMultipleRegistersResponse.cs
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus.IntegrationTests/CustomMessages/CustomWriteMultipleRegistersResponse.cs
+END

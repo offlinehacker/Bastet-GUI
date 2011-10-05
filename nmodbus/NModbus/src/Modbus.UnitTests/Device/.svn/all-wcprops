@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/323/trunk/NModbus/src/Modbus.UnitTests/Device
+END
+ModbusSlaveFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/323/trunk/NModbus/src/Modbus.UnitTests/Device/ModbusSlaveFixture.cs
+END
+TcpConnectionEventArgsFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Device/TcpConnectionEventArgsFixture.cs
+END
+ModbusMasterFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Device/ModbusMasterFixture.cs
+END

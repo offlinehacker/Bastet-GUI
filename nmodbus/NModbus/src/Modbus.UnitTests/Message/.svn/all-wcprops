@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus.UnitTests/Message
+END
+ReadHoldingInputRegistersResponseFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Message/ReadHoldingInputRegistersResponseFixture.cs
+END
+WriteMultipleRegistersRequestFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Message/WriteMultipleRegistersRequestFixture.cs
+END
+SlaveExceptionResponseFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Message/SlaveExceptionResponseFixture.cs
+END
+WriteMultipleCoilsRequestFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Message/WriteMultipleCoilsRequestFixture.cs
+END
+WriteMultipleRegistersResponseFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Message/WriteMultipleRegistersResponseFixture.cs
+END
+WriteMultipleCoilsResponseFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Message/WriteMultipleCoilsResponseFixture.cs
+END
+ModbusMessageImplFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Message/ModbusMessageImplFixture.cs
+END
+ReadCoilsInputsRequestFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Message/ReadCoilsInputsRequestFixture.cs
+END
+ModbusMessageWithDataFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Message/ModbusMessageWithDataFixture.cs
+END
+ModbusMessageFactoryFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus.UnitTests/Message/ModbusMessageFactoryFixture.cs
+END
+ReturnQueryDataRequestResponseFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Message/ReturnQueryDataRequestResponseFixture.cs
+END
+ReadCoilsInputsResponseFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Message/ReadCoilsInputsResponseFixture.cs
+END
+WriteSingleRegisterRequestResponseFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Message/WriteSingleRegisterRequestResponseFixture.cs
+END
+WriteSingleCoilRequestResponseFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Message/WriteSingleCoilRequestResponseFixture.cs
+END
+ModbusMessageFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Message/ModbusMessageFixture.cs
+END
+DiagnosticsRequestResponseFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Message/DiagnosticsRequestResponseFixture.cs
+END
+MessageUtility.cs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Message/MessageUtility.cs
+END
+ReadHoldingInputRegistersRequestFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Message/ReadHoldingInputRegistersRequestFixture.cs
+END
+ReadWriteMultipleRegistersRequestFixture.cs
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/306/trunk/NModbus/src/Modbus.UnitTests/Message/ReadWriteMultipleRegistersRequestFixture.cs
+END

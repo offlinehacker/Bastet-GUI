@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/299/trunk/NModbus/lib/log4net/CompactFramework
+END
+log4net.dll
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/299/trunk/NModbus/lib/log4net/CompactFramework/log4net.dll
+END
+log4net.xml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/299/trunk/NModbus/lib/log4net/CompactFramework/log4net.xml
+END

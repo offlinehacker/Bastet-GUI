@@ -1,0 +1,49 @@
+10
+
+dir
+328
+http://nmodbus.googlecode.com/svn/trunk/NModbus/tools
+http://nmodbus.googlecode.com/svn
+
+
+
+2009-04-14T23:33:24.940951Z
+299
+sjalex
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+97f8bd50-a619-0410-a575-7b5c649250ac
+
+nant
+dir
+
+StyleCop
+dir
+
+nmodbus
+dir
+
+jamod
+dir
+
+RhinoMocks
+dir
+
+ncover
+dir
+
+MbUnit
+dir
+

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/328/trunk/NModbus/src/Modbus
+END
+GlobalSuppressions.cs
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/296/trunk/NModbus/src/Modbus/GlobalSuppressions.cs
+END
+Modbus.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/321/trunk/NModbus/src/Modbus/Modbus.csproj
+END
+Resources.resx
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/299/trunk/NModbus/src/Modbus/Resources.resx
+END
+ModbusTransport.cd
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/198/trunk/NModbus/src/Modbus/ModbusTransport.cd
+END
+Modbus - Compact.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/308/trunk/NModbus/src/Modbus/Modbus%20-%20Compact.csproj
+END
+SlaveException.cs
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/299/trunk/NModbus/src/Modbus/SlaveException.cs
+END
+Resources.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/299/trunk/NModbus/src/Modbus/Resources.Designer.cs
+END
+Modbus.cs
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/328/trunk/NModbus/src/Modbus/Modbus.cs
+END
+ModbusDevice.cd
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/198/trunk/NModbus/src/Modbus/ModbusDevice.cd
+END

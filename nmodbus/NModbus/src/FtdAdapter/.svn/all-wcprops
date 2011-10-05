@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/311/trunk/NModbus/src/FtdAdapter
+END
+FtdUsbPort.cs
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/311/trunk/NModbus/src/FtdAdapter/FtdUsbPort.cs
+END
+FtdEnums.cs
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/296/trunk/NModbus/src/FtdAdapter/FtdEnums.cs
+END
+Resources.resx
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/296/trunk/NModbus/src/FtdAdapter/Resources.resx
+END
+FtdDeviceInfo.cs
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/296/trunk/NModbus/src/FtdAdapter/FtdDeviceInfo.cs
+END
+Resources.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/296/trunk/NModbus/src/FtdAdapter/Resources.Designer.cs
+END
+FtdAdapter.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/296/trunk/NModbus/src/FtdAdapter/FtdAdapter.csproj
+END
+NativeMethods.cs
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/296/trunk/NModbus/src/FtdAdapter/NativeMethods.cs
+END

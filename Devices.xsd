@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Devices" targetNamespace="http://tempuri.org/Devices.xsd" xmlns:mstns="http://tempuri.org/Devices.xsd" xmlns="http://tempuri.org/Devices.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="tglbvsebConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="tglbvsebConnectionString (Settings)" PropertyReference="ApplicationSettings.TROL_MgmtGui2.Properties.Settings.GlobalReference.Default.tglbvsebConnectionString" Provider="System.Data.OleDb" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="tglbvsebConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="tglbvsebConnectionString1 (Settings)" PropertyReference="ApplicationSettings.TROL_MgmtGui2.Properties.Settings.GlobalReference.Default.tglbvsebConnectionString1" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Devices" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Devices" msprop:Generator_UserDSName="Devices">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BAFS_PR" msprop:Generator_TableClassName="BAFS_PRDataTable" msprop:Generator_TableVarName="tableBAFS_PR" msprop:Generator_TablePropName="BAFS_PR" msprop:Generator_RowDeletingName="BAFS_PRRowDeleting" msprop:Generator_UserTableName="BAFS_PR" msprop:Generator_RowChangingName="BAFS_PRRowChanging" msprop:Generator_RowEvHandlerName="BAFS_PRRowChangeEventHandler" msprop:Generator_RowDeletedName="BAFS_PRRowDeleted" msprop:Generator_RowEvArgName="BAFS_PRRowChangeEvent" msprop:Generator_RowChangedName="BAFS_PRRowChanged" msprop:Generator_RowClassName="BAFS_PRRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="_x0040_ZapNo" msprop:Generator_ColumnVarNameInTable="_column_ZapNo" msprop:Generator_ColumnPropNameInRow="@ZapNo" msprop:Generator_ColumnPropNameInTable="@ZapNoColumn" msprop:Generator_UserColumnName="@ZapNo" type="xs:int" />
+              <xs:element name="WeightMinWeightLimit" msprop:Generator_ColumnVarNameInTable="columnWeightMinWeightLimit" msprop:Generator_ColumnPropNameInRow="WeightMinWeightLimit" msprop:Generator_ColumnPropNameInTable="WeightMinWeightLimitColumn" msprop:Generator_UserColumnName="WeightMinWeightLimit" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="WeightMaxAlarmLimit" msprop:Generator_ColumnVarNameInTable="columnWeightMaxAlarmLimit" msprop:Generator_ColumnPropNameInRow="WeightMaxAlarmLimit" msprop:Generator_ColumnPropNameInTable="WeightMaxAlarmLimitColumn" msprop:Generator_UserColumnName="WeightMaxAlarmLimit" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="WeightDeltaSet" msprop:Generator_ColumnVarNameInTable="columnWeightDeltaSet" msprop:Generator_ColumnPropNameInRow="WeightDeltaSet" msprop:Generator_ColumnPropNameInTable="WeightDeltaSetColumn" msprop:Generator_UserColumnName="WeightDeltaSet" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="WeightDeltaAlarm1" msprop:Generator_ColumnVarNameInTable="columnWeightDeltaAlarm1" msprop:Generator_ColumnPropNameInRow="WeightDeltaAlarm1" msprop:Generator_ColumnPropNameInTable="WeightDeltaAlarm1Column" msprop:Generator_UserColumnName="WeightDeltaAlarm1" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="WeightDeltaAlarm2" msprop:Generator_ColumnVarNameInTable="columnWeightDeltaAlarm2" msprop:Generator_ColumnPropNameInRow="WeightDeltaAlarm2" msprop:Generator_ColumnPropNameInTable="WeightDeltaAlarm2Column" msprop:Generator_UserColumnName="WeightDeltaAlarm2" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="WeightDeltaAlarm3" msprop:Generator_ColumnVarNameInTable="columnWeightDeltaAlarm3" msprop:Generator_ColumnPropNameInRow="WeightDeltaAlarm3" msprop:Generator_ColumnPropNameInTable="WeightDeltaAlarm3Column" msprop:Generator_UserColumnName="WeightDeltaAlarm3" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="WeightSetpointFiltLen" msprop:Generator_ColumnVarNameInTable="columnWeightSetpointFiltLen" msprop:Generator_ColumnPropNameInRow="WeightSetpointFiltLen" msprop:Generator_ColumnPropNameInTable="WeightSetpointFiltLenColumn" msprop:Generator_UserColumnName="WeightSetpointFiltLen" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="WeightWorkFiltLen" msprop:Generator_ColumnVarNameInTable="columnWeightWorkFiltLen" msprop:Generator_ColumnPropNameInRow="WeightWorkFiltLen" msprop:Generator_ColumnPropNameInTable="WeightWorkFiltLenColumn" msprop:Generator_UserColumnName="WeightWorkFiltLen" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="Zmd_Offset_B" msprop:Generator_ColumnVarNameInTable="columnZmd_Offset_B" msprop:Generator_ColumnPropNameInRow="Zmd_Offset_B" msprop:Generator_ColumnPropNameInTable="Zmd_Offset_BColumn" msprop:Generator_UserColumnName="Zmd_Offset_B" type="xs:short" minOccurs="0" />
+              <xs:element name="Zmd_Gain_B" msprop:Generator_ColumnVarNameInTable="columnZmd_Gain_B" msprop:Generator_ColumnPropNameInRow="Zmd_Gain_B" msprop:Generator_ColumnPropNameInTable="Zmd_Gain_BColumn" msprop:Generator_UserColumnName="Zmd_Gain_B" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="Zmd_CustI_D0" msprop:Generator_ColumnVarNameInTable="columnZmd_CustI_D0" msprop:Generator_ColumnPropNameInRow="Zmd_CustI_D0" msprop:Generator_ColumnPropNameInTable="Zmd_CustI_D0Column" msprop:Generator_UserColumnName="Zmd_CustI_D0" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="Zmd_CustI_D1" msprop:Generator_ColumnVarNameInTable="columnZmd_CustI_D1" msprop:Generator_ColumnPropNameInRow="Zmd_CustI_D1" msprop:Generator_ColumnPropNameInTable="Zmd_CustI_D1Column" msprop:Generator_UserColumnName="Zmd_CustI_D1" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="Zmd_Cust_ID2" msprop:Generator_ColumnVarNameInTable="columnZmd_Cust_ID2" msprop:Generator_ColumnPropNameInRow="Zmd_Cust_ID2" msprop:Generator_ColumnPropNameInTable="Zmd_Cust_ID2Column" msprop:Generator_UserColumnName="Zmd_Cust_ID2" type="xs:unsignedShort" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BAFS_PS" msprop:Generator_TableClassName="BAFS_PSDataTable" msprop:Generator_TableVarName="tableBAFS_PS" msprop:Generator_TablePropName="BAFS_PS" msprop:Generator_RowDeletingName="BAFS_PSRowDeleting" msprop:Generator_UserTableName="BAFS_PS" msprop:Generator_RowChangingName="BAFS_PSRowChanging" msprop:Generator_RowEvHandlerName="BAFS_PSRowChangeEventHandler" msprop:Generator_RowDeletedName="BAFS_PSRowDeleted" msprop:Generator_RowEvArgName="BAFS_PSRowChangeEvent" msprop:Generator_RowChangedName="BAFS_PSRowChanged" msprop:Generator_RowClassName="BAFS_PSRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="_x0040_ZapNo" msprop:Generator_ColumnVarNameInTable="_column_ZapNo" msprop:Generator_ColumnPropNameInRow="@ZapNo" msprop:Generator_ColumnPropNameInTable="@ZapNoColumn" msprop:Generator_UserColumnName="@ZapNo" type="xs:int" />
+              <xs:element name="MeasureFSMTick" msprop:Generator_ColumnVarNameInTable="columnMeasureFSMTick" msprop:Generator_ColumnPropNameInRow="MeasureFSMTick" msprop:Generator_ColumnPropNameInTable="MeasureFSMTickColumn" msprop:Generator_UserColumnName="MeasureFSMTick" type="xs:unsignedShort" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BAMOT_PR" msprop:Generator_TableClassName="BAMOT_PRDataTable" msprop:Generator_TableVarName="tableBAMOT_PR" msprop:Generator_TablePropName="BAMOT_PR" msprop:Generator_RowDeletingName="BAMOT_PRRowDeleting" msprop:Generator_UserTableName="BAMOT_PR" msprop:Generator_RowChangingName="BAMOT_PRRowChanging" msprop:Generator_RowEvHandlerName="BAMOT_PRRowChangeEventHandler" msprop:Generator_RowDeletedName="BAMOT_PRRowDeleted" msprop:Generator_RowEvArgName="BAMOT_PRRowChangeEvent" msprop:Generator_RowChangedName="BAMOT_PRRowChanged" msprop:Generator_RowClassName="BAMOT_PRRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="_x0040_ZapNo" msprop:Generator_ColumnVarNameInTable="_column_ZapNo" msprop:Generator_ColumnPropNameInRow="@ZapNo" msprop:Generator_ColumnPropNameInTable="@ZapNoColumn" msprop:Generator_UserColumnName="@ZapNo" type="xs:int" />
+              <xs:element name="MotorStartupTimeout_ms" msprop:Generator_ColumnVarNameInTable="columnMotorStartupTimeout_ms" msprop:Generator_ColumnPropNameInRow="MotorStartupTimeout_ms" msprop:Generator_ColumnPropNameInTable="MotorStartupTimeout_msColumn" msprop:Generator_UserColumnName="MotorStartupTimeout_ms" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="MotorStartupPWM" msprop:Generator_ColumnVarNameInTable="columnMotorStartupPWM" msprop:Generator_ColumnPropNameInRow="MotorStartupPWM" msprop:Generator_ColumnPropNameInTable="MotorStartupPWMColumn" msprop:Generator_UserColumnName="MotorStartupPWM" type="xs:unsignedShort" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BAMOT_PS" msprop:Generator_TableClassName="BAMOT_PSDataTable" msprop:Generator_TableVarName="tableBAMOT_PS" msprop:Generator_TablePropName="BAMOT_PS" msprop:Generator_RowDeletingName="BAMOT_PSRowDeleting" msprop:Generator_UserTableName="BAMOT_PS" msprop:Generator_RowChangingName="BAMOT_PSRowChanging" msprop:Generator_RowEvHandlerName="BAMOT_PSRowChangeEventHandler" msprop:Generator_RowDeletedName="BAMOT_PSRowDeleted" msprop:Generator_RowEvArgName="BAMOT_PSRowChangeEvent" msprop:Generator_RowChangedName="BAMOT_PSRowChanged" msprop:Generator_RowClassName="BAMOT_PSRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="_x0040_ZapNo" msprop:Generator_ColumnVarNameInTable="_column_ZapNo" msprop:Generator_ColumnPropNameInRow="@ZapNo" msprop:Generator_ColumnPropNameInTable="@ZapNoColumn" msprop:Generator_UserColumnName="@ZapNo" type="xs:int" />
+              <xs:element name="MotorFSMTick_us" msprop:Generator_ColumnVarNameInTable="columnMotorFSMTick_us" msprop:Generator_ColumnPropNameInRow="MotorFSMTick_us" msprop:Generator_ColumnPropNameInTable="MotorFSMTick_usColumn" msprop:Generator_UserColumnName="MotorFSMTick_us" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="CurrLimitFilterLen_ms" msprop:Generator_ColumnVarNameInTable="columnCurrLimitFilterLen_ms" msprop:Generator_ColumnPropNameInRow="CurrLimitFilterLen_ms" msprop:Generator_ColumnPropNameInTable="CurrLimitFilterLen_msColumn" msprop:Generator_UserColumnName="CurrLimitFilterLen_ms" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="CurrentLimit_A" msprop:Generator_ColumnVarNameInTable="columnCurrentLimit_A" msprop:Generator_ColumnPropNameInRow="CurrentLimit_A" msprop:Generator_ColumnPropNameInTable="CurrentLimit_AColumn" msprop:Generator_UserColumnName="CurrentLimit_A" type="xs:unsignedShort" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BAREM_PR" msprop:Generator_TableClassName="BAREM_PRDataTable" msprop:Generator_TableVarName="tableBAREM_PR" msprop:Generator_TablePropName="BAREM_PR" msprop:Generator_RowDeletingName="BAREM_PRRowDeleting" msprop:Generator_UserTableName="BAREM_PR" msprop:Generator_RowChangingName="BAREM_PRRowChanging" msprop:Generator_RowEvHandlerName="BAREM_PRRowChangeEventHandler" msprop:Generator_RowDeletedName="BAREM_PRRowDeleted" msprop:Generator_RowEvArgName="BAREM_PRRowChangeEvent" msprop:Generator_RowChangedName="BAREM_PRRowChanged" msprop:Generator_RowClassName="BAREM_PRRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="_x0040_ZapNo" msprop:Generator_ColumnVarNameInTable="_column_ZapNo" msprop:Generator_ColumnPropNameInRow="@ZapNo" msprop:Generator_ColumnPropNameInTable="@ZapNoColumn" msprop:Generator_UserColumnName="@ZapNo" type="xs:int" />
+              <xs:element name="DispMode" msprop:Generator_ColumnVarNameInTable="columnDispMode" msprop:Generator_ColumnPropNameInRow="DispMode" msprop:Generator_ColumnPropNameInTable="DispModeColumn" msprop:Generator_UserColumnName="DispMode" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="oled_BackgroundColor" msprop:Generator_ColumnVarNameInTable="columnoled_BackgroundColor" msprop:Generator_ColumnPropNameInRow="oled_BackgroundColor" msprop:Generator_ColumnPropNameInTable="oled_BackgroundColorColumn" msprop:Generator_UserColumnName="oled_BackgroundColor" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="oled_ForegroundColor" msprop:Generator_ColumnVarNameInTable="columnoled_ForegroundColor" msprop:Generator_ColumnPropNameInRow="oled_ForegroundColor" msprop:Generator_ColumnPropNameInTable="oled_ForegroundColorColumn" msprop:Generator_UserColumnName="oled_ForegroundColor" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="oled_ArrowColor" msprop:Generator_ColumnVarNameInTable="columnoled_ArrowColor" msprop:Generator_ColumnPropNameInRow="oled_ArrowColor" msprop:Generator_ColumnPropNameInTable="oled_ArrowColorColumn" msprop:Generator_UserColumnName="oled_ArrowColor" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="oled_MotorOKColor" msprop:Generator_ColumnVarNameInTable="columnoled_MotorOKColor" msprop:Generator_ColumnPropNameInRow="oled_MotorOKColor" msprop:Generator_ColumnPropNameInTable="oled_MotorOKColorColumn" msprop:Generator_UserColumnName="oled_MotorOKColor" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="oled_MotorLimitColor" msprop:Generator_ColumnVarNameInTable="columnoled_MotorLimitColor" msprop:Generator_ColumnPropNameInRow="oled_MotorLimitColor" msprop:Generator_ColumnPropNameInTable="oled_MotorLimitColorColumn" msprop:Generator_UserColumnName="oled_MotorLimitColor" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="oled_BatColor" msprop:Generator_ColumnVarNameInTable="columnoled_BatColor" msprop:Generator_ColumnPropNameInRow="oled_BatColor" msprop:Generator_ColumnPropNameInTable="oled_BatColorColumn" msprop:Generator_UserColumnName="oled_BatColor" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="oled_IndicatorLim1Color" msprop:Generator_ColumnVarNameInTable="columnoled_IndicatorLim1Color" msprop:Generator_ColumnPropNameInRow="oled_IndicatorLim1Color" msprop:Generator_ColumnPropNameInTable="oled_IndicatorLim1ColorColumn" msprop:Generator_UserColumnName="oled_IndicatorLim1Color" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="oled_IndicatorLim2Color" msprop:Generator_ColumnVarNameInTable="columnoled_IndicatorLim2Color" msprop:Generator_ColumnPropNameInRow="oled_IndicatorLim2Color" msprop:Generator_ColumnPropNameInTable="oled_IndicatorLim2ColorColumn" msprop:Generator_UserColumnName="oled_IndicatorLim2Color" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="oled_IndicatorLim3Color" msprop:Generator_ColumnVarNameInTable="columnoled_IndicatorLim3Color" msprop:Generator_ColumnPropNameInRow="oled_IndicatorLim3Color" msprop:Generator_ColumnPropNameInTable="oled_IndicatorLim3ColorColumn" msprop:Generator_UserColumnName="oled_IndicatorLim3Color" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="oled_WeightSetColor" msprop:Generator_ColumnVarNameInTable="columnoled_WeightSetColor" msprop:Generator_ColumnPropNameInRow="oled_WeightSetColor" msprop:Generator_ColumnPropNameInTable="oled_WeightSetColorColumn" msprop:Generator_UserColumnName="oled_WeightSetColor" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="oled_ErrorColor" msprop:Generator_ColumnVarNameInTable="columnoled_ErrorColor" msprop:Generator_ColumnPropNameInRow="oled_ErrorColor" msprop:Generator_ColumnPropNameInTable="oled_ErrorColorColumn" msprop:Generator_UserColumnName="oled_ErrorColor" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="oled_SignOnColor" msprop:Generator_ColumnVarNameInTable="columnoled_SignOnColor" msprop:Generator_ColumnPropNameInRow="oled_SignOnColor" msprop:Generator_ColumnPropNameInTable="oled_SignOnColorColumn" msprop:Generator_UserColumnName="oled_SignOnColor" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="oled_SignOnBackColor" msprop:Generator_ColumnVarNameInTable="columnoled_SignOnBackColor" msprop:Generator_ColumnPropNameInRow="oled_SignOnBackColor" msprop:Generator_ColumnPropNameInTable="oled_SignOnBackColorColumn" msprop:Generator_UserColumnName="oled_SignOnBackColor" type="xs:unsignedShort" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BAREM_PS" msprop:Generator_TableClassName="BAREM_PSDataTable" msprop:Generator_TableVarName="tableBAREM_PS" msprop:Generator_TablePropName="BAREM_PS" msprop:Generator_RowDeletingName="BAREM_PSRowDeleting" msprop:Generator_UserTableName="BAREM_PS" msprop:Generator_RowChangingName="BAREM_PSRowChanging" msprop:Generator_RowEvHandlerName="BAREM_PSRowChangeEventHandler" msprop:Generator_RowDeletedName="BAREM_PSRowDeleted" msprop:Generator_RowEvArgName="BAREM_PSRowChangeEvent" msprop:Generator_RowChangedName="BAREM_PSRowChanged" msprop:Generator_RowClassName="BAREM_PSRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="_x0040_ZapNo" msprop:Generator_ColumnVarNameInTable="_column_ZapNo" msprop:Generator_ColumnPropNameInRow="@ZapNo" msprop:Generator_ColumnPropNameInTable="@ZapNoColumn" msprop:Generator_UserColumnName="@ZapNo" type="xs:int" />
+              <xs:element name="AutoPowerOff_s" msprop:Generator_ColumnVarNameInTable="columnAutoPowerOff_s" msprop:Generator_ColumnPropNameInRow="AutoPowerOff_s" msprop:Generator_ColumnPropNameInTable="AutoPowerOff_sColumn" msprop:Generator_UserColumnName="AutoPowerOff_s" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="AutoRepeat_ms" msprop:Generator_ColumnVarNameInTable="columnAutoRepeat_ms" msprop:Generator_ColumnPropNameInRow="AutoRepeat_ms" msprop:Generator_ColumnPropNameInTable="AutoRepeat_msColumn" msprop:Generator_UserColumnName="AutoRepeat_ms" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="ForceRefresh_ms" msprop:Generator_ColumnVarNameInTable="columnForceRefresh_ms" msprop:Generator_ColumnPropNameInRow="ForceRefresh_ms" msprop:Generator_ColumnPropNameInTable="ForceRefresh_msColumn" msprop:Generator_UserColumnName="ForceRefresh_ms" type="xs:unsignedShort" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BASYS_ADDR" msprop:Generator_TableClassName="BASYS_ADDRDataTable" msprop:Generator_TableVarName="tableBASYS_ADDR" msprop:Generator_TablePropName="BASYS_ADDR" msprop:Generator_RowDeletingName="BASYS_ADDRRowDeleting" msprop:Generator_UserTableName="BASYS_ADDR" msprop:Generator_RowChangingName="BASYS_ADDRRowChanging" msprop:Generator_RowEvHandlerName="BASYS_ADDRRowChangeEventHandler" msprop:Generator_RowDeletedName="BASYS_ADDRRowDeleted" msprop:Generator_RowEvArgName="BASYS_ADDRRowChangeEvent" msprop:Generator_RowChangedName="BASYS_ADDRRowChanged" msprop:Generator_RowClassName="BASYS_ADDRRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="_x0040_ZapNo" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="_column_ZapNo" msprop:Generator_ColumnPropNameInRow="@ZapNo" msprop:Generator_ColumnPropNameInTable="@ZapNoColumn" msprop:Generator_UserColumnName="@ZapNo" type="xs:int" />
+              <xs:element name="chair_addr" msprop:Generator_ColumnVarNameInTable="columnchair_addr" msprop:Generator_ColumnPropNameInRow="chair_addr" msprop:Generator_ColumnPropNameInTable="chair_addrColumn" msprop:Generator_UserColumnName="chair_addr" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="remote_addr" msprop:Generator_ColumnVarNameInTable="columnremote_addr" msprop:Generator_ColumnPropNameInRow="remote_addr" msprop:Generator_ColumnPropNameInTable="remote_addrColumn" msprop:Generator_UserColumnName="remote_addr" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="IDChair" msprop:Generator_ColumnVarNameInTable="columnIDChair" msprop:Generator_ColumnPropNameInRow="IDChair" msprop:Generator_ColumnPropNameInTable="IDChairColumn" msprop:Generator_UserColumnName="IDChair" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="IDRemote" msprop:Generator_ColumnVarNameInTable="columnIDRemote" msprop:Generator_ColumnPropNameInRow="IDRemote" msprop:Generator_ColumnPropNameInTable="IDRemoteColumn" msprop:Generator_UserColumnName="IDRemote" type="xs:unsignedByte" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Device" msprop:Generator_TableClassName="DeviceDataTable" msprop:Generator_TableVarName="tableDevice" msprop:Generator_TablePropName="Device" msprop:Generator_RowDeletingName="DeviceRowDeleting" msprop:Generator_UserTableName="Device" msprop:Generator_RowChangingName="DeviceRowChanging" msprop:Generator_RowEvHandlerName="DeviceRowChangeEventHandler" msprop:Generator_RowDeletedName="DeviceRowDeleted" msprop:Generator_RowEvArgName="DeviceRowChangeEvent" msprop:Generator_RowChangedName="DeviceRowChanged" msprop:Generator_RowClassName="DeviceRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LinkId" msprop:Generator_ColumnVarNameInTable="columnLinkId" msprop:Generator_ColumnPropNameInRow="LinkId" msprop:Generator_ColumnPropNameInTable="LinkIdColumn" msprop:Generator_UserColumnName="LinkId" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="DeviceType" msprop:Generator_ColumnVarNameInTable="columnDeviceType" msprop:Generator_ColumnPropNameInRow="DeviceType" msprop:Generator_ColumnPropNameInTable="DeviceTypeColumn" msprop:Generator_UserColumnName="DeviceType" type="xs:unsignedByte" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ZSMI31014_EE" msprop:Generator_TableClassName="ZSMI31014_EEDataTable" msprop:Generator_TableVarName="tableZSMI31014_EE" msprop:Generator_TablePropName="ZSMI31014_EE" msprop:Generator_RowDeletingName="ZSMI31014_EERowDeleting" msprop:Generator_UserTableName="ZSMI31014_EE" msprop:Generator_RowChangingName="ZSMI31014_EERowChanging" msprop:Generator_RowEvHandlerName="ZSMI31014_EERowChangeEventHandler" msprop:Generator_RowDeletedName="ZSMI31014_EERowDeleted" msprop:Generator_RowEvArgName="ZSMI31014_EERowChangeEvent" msprop:Generator_RowChangedName="ZSMI31014_EERowChanged" msprop:Generator_RowClassName="ZSMI31014_EERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="_x0040_ZapNo" msprop:Generator_ColumnVarNameInTable="_column_ZapNo" msprop:Generator_ColumnPropNameInRow="@ZapNo" msprop:Generator_ColumnPropNameInTable="@ZapNoColumn" msprop:Generator_UserColumnName="@ZapNo" type="xs:int" />
+              <xs:element name="Cust_ID0" msprop:Generator_ColumnVarNameInTable="columnCust_ID0" msprop:Generator_ColumnPropNameInRow="Cust_ID0" msprop:Generator_ColumnPropNameInTable="Cust_ID0Column" msprop:Generator_UserColumnName="Cust_ID0" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="ZMD_Config_1" msprop:Generator_ColumnVarNameInTable="columnZMD_Config_1" msprop:Generator_ColumnPropNameInRow="ZMD_Config_1" msprop:Generator_ColumnPropNameInTable="ZMD_Config_1Column" msprop:Generator_UserColumnName="ZMD_Config_1" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="ZMD_Config_2" msprop:Generator_ColumnVarNameInTable="columnZMD_Config_2" msprop:Generator_ColumnPropNameInRow="ZMD_Config_2" msprop:Generator_ColumnPropNameInTable="ZMD_Config_2Column" msprop:Generator_UserColumnName="ZMD_Config_2" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="Offset_B" msprop:Generator_ColumnVarNameInTable="columnOffset_B" msprop:Generator_ColumnPropNameInRow="Offset_B" msprop:Generator_ColumnPropNameInTable="Offset_BColumn" msprop:Generator_UserColumnName="Offset_B" type="xs:short" minOccurs="0" />
+              <xs:element name="Gain_B" msprop:Generator_ColumnVarNameInTable="columnGain_B" msprop:Generator_ColumnPropNameInRow="Gain_B" msprop:Generator_ColumnPropNameInTable="Gain_BColumn" msprop:Generator_UserColumnName="Gain_B" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="Tcg" msprop:Generator_ColumnVarNameInTable="columnTcg" msprop:Generator_ColumnPropNameInRow="Tcg" msprop:Generator_ColumnPropNameInTable="TcgColumn" msprop:Generator_UserColumnName="Tcg" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="Tco" msprop:Generator_ColumnVarNameInTable="columnTco" msprop:Generator_ColumnPropNameInRow="Tco" msprop:Generator_ColumnPropNameInTable="TcoColumn" msprop:Generator_UserColumnName="Tco" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="SOT_tco" msprop:Generator_ColumnVarNameInTable="columnSOT_tco" msprop:Generator_ColumnPropNameInRow="SOT_tco" msprop:Generator_ColumnPropNameInTable="SOT_tcoColumn" msprop:Generator_UserColumnName="SOT_tco" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="SOT_tcg" msprop:Generator_ColumnVarNameInTable="columnSOT_tcg" msprop:Generator_ColumnPropNameInRow="SOT_tcg" msprop:Generator_ColumnPropNameInTable="SOT_tcgColumn" msprop:Generator_UserColumnName="SOT_tcg" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="SOT_bridge" msprop:Generator_ColumnVarNameInTable="columnSOT_bridge" msprop:Generator_ColumnPropNameInRow="SOT_bridge" msprop:Generator_ColumnPropNameInTable="SOT_bridgeColumn" msprop:Generator_UserColumnName="SOT_bridge" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="Offset_T" msprop:Generator_ColumnVarNameInTable="columnOffset_T" msprop:Generator_ColumnPropNameInRow="Offset_T" msprop:Generator_ColumnPropNameInTable="Offset_TColumn" msprop:Generator_UserColumnName="Offset_T" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="Gain_T" msprop:Generator_ColumnVarNameInTable="columnGain_T" msprop:Generator_ColumnPropNameInRow="Gain_T" msprop:Generator_ColumnPropNameInTable="Gain_TColumn" msprop:Generator_UserColumnName="Gain_T" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="SOT_T" msprop:Generator_ColumnVarNameInTable="columnSOT_T" msprop:Generator_ColumnPropNameInRow="SOT_T" msprop:Generator_ColumnPropNameInTable="SOT_TColumn" msprop:Generator_UserColumnName="SOT_T" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="T_SETL" msprop:Generator_ColumnVarNameInTable="columnT_SETL" msprop:Generator_ColumnPropNameInRow="T_SETL" msprop:Generator_ColumnPropNameInTable="T_SETLColumn" msprop:Generator_UserColumnName="T_SETL" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="Cust_ID1" msprop:Generator_ColumnVarNameInTable="columnCust_ID1" msprop:Generator_ColumnPropNameInRow="Cust_ID1" msprop:Generator_ColumnPropNameInTable="Cust_ID1Column" msprop:Generator_UserColumnName="Cust_ID1" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="B_Config" msprop:Generator_ColumnVarNameInTable="columnB_Config" msprop:Generator_ColumnPropNameInRow="B_Config" msprop:Generator_ColumnPropNameInTable="B_ConfigColumn" msprop:Generator_UserColumnName="B_Config" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="T_Config" msprop:Generator_ColumnVarNameInTable="columnT_Config" msprop:Generator_ColumnPropNameInRow="T_Config" msprop:Generator_ColumnPropNameInTable="T_ConfigColumn" msprop:Generator_UserColumnName="T_Config" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="Osc_Trim" msprop:Generator_ColumnVarNameInTable="columnOsc_Trim" msprop:Generator_ColumnPropNameInRow="Osc_Trim" msprop:Generator_ColumnPropNameInTable="Osc_TrimColumn" msprop:Generator_UserColumnName="Osc_Trim" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="Signature" msprop:Generator_ColumnVarNameInTable="columnSignature" msprop:Generator_ColumnPropNameInRow="Signature" msprop:Generator_ColumnPropNameInTable="SignatureColumn" msprop:Generator_UserColumnName="Signature" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="Cust_ID2" msprop:Generator_ColumnVarNameInTable="columnCust_ID2" msprop:Generator_ColumnPropNameInRow="Cust_ID2" msprop:Generator_ColumnPropNameInTable="Cust_ID2Column" msprop:Generator_UserColumnName="Cust_ID2" type="xs:unsignedInt" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BASYS_S" msprop:Generator_TableClassName="BASYS_SDataTable" msprop:Generator_TableVarName="tableBASYS_S" msprop:Generator_TablePropName="BASYS_S" msprop:Generator_RowDeletingName="BASYS_SRowDeleting" msprop:Generator_UserTableName="BASYS_S" msprop:Generator_RowChangingName="BASYS_SRowChanging" msprop:Generator_RowEvHandlerName="BASYS_SRowChangeEventHandler" msprop:Generator_RowDeletedName="BASYS_SRowDeleted" msprop:Generator_RowEvArgName="BASYS_SRowChangeEvent" msprop:Generator_RowChangedName="BASYS_SRowChanged" msprop:Generator_RowClassName="BASYS_SRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="_x0040_ZapNo" msprop:Generator_ColumnVarNameInTable="_column_ZapNo" msprop:Generator_ColumnPropNameInRow="@ZapNo" msprop:Generator_ColumnPropNameInTable="@ZapNoColumn" msprop:Generator_UserColumnName="@ZapNo" type="xs:int" />
+              <xs:element name="force" msprop:Generator_ColumnVarNameInTable="columnforce" msprop:Generator_ColumnPropNameInRow="force" msprop:Generator_ColumnPropNameInTable="forceColumn" msprop:Generator_UserColumnName="force" type="xs:short" minOccurs="0" />
+              <xs:element name="chair_status" msprop:Generator_ColumnVarNameInTable="columnchair_status" msprop:Generator_ColumnPropNameInRow="chair_status" msprop:Generator_ColumnPropNameInTable="chair_statusColumn" msprop:Generator_UserColumnName="chair_status" type="xs:unsignedShort" minOccurs="0" />
+              <xs:element name="sys_status" msprop:Generator_ColumnVarNameInTable="columnsys_status" msprop:Generator_ColumnPropNameInRow="sys_status" msprop:Generator_ColumnPropNameInTable="sys_statusColumn" msprop:Generator_UserColumnName="sys_status" type="xs:unsignedShort" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SYS_INFO_CHAIR" msprop:Generator_TableClassName="SYS_INFO_CHAIRDataTable" msprop:Generator_TableVarName="tableSYS_INFO_CHAIR" msprop:Generator_TablePropName="SYS_INFO_CHAIR" msprop:Generator_RowDeletingName="SYS_INFO_CHAIRRowDeleting" msprop:Generator_UserTableName="SYS_INFO_CHAIR" msprop:Generator_RowChangingName="SYS_INFO_CHAIRRowChanging" msprop:Generator_RowEvHandlerName="SYS_INFO_CHAIRRowChangeEventHandler" msprop:Generator_RowDeletedName="SYS_INFO_CHAIRRowDeleted" msprop:Generator_RowEvArgName="SYS_INFO_CHAIRRowChangeEvent" msprop:Generator_RowChangedName="SYS_INFO_CHAIRRowChanged" msprop:Generator_RowClassName="SYS_INFO_CHAIRRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="_x0040_ZapNo" msprop:Generator_ColumnVarNameInTable="_column_ZapNo" msprop:Generator_ColumnPropNameInRow="@ZapNo" msprop:Generator_ColumnPropNameInTable="@ZapNoColumn" msprop:Generator_UserColumnName="@ZapNo" type="xs:int" />
+              <xs:element name="SerNo" msprop:Generator_ColumnVarNameInTable="columnSerNo" msprop:Generator_ColumnPropNameInRow="SerNo" msprop:Generator_ColumnPropNameInTable="SerNoColumn" msprop:Generator_UserColumnName="SerNo" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="HW_Ver" msprop:Generator_ColumnVarNameInTable="columnHW_Ver" msprop:Generator_ColumnPropNameInRow="HW_Ver" msprop:Generator_ColumnPropNameInTable="HW_VerColumn" msprop:Generator_UserColumnName="HW_Ver" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="SW_Ver" msprop:Generator_ColumnVarNameInTable="columnSW_Ver" msprop:Generator_ColumnPropNameInRow="SW_Ver" msprop:Generator_ColumnPropNameInTable="SW_VerColumn" msprop:Generator_UserColumnName="SW_Ver" type="xs:unsignedInt" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SYS_INFO_REMOTE" msprop:Generator_TableClassName="SYS_INFO_REMOTEDataTable" msprop:Generator_TableVarName="tableSYS_INFO_REMOTE" msprop:Generator_TablePropName="SYS_INFO_REMOTE" msprop:Generator_RowDeletingName="SYS_INFO_REMOTERowDeleting" msprop:Generator_UserTableName="SYS_INFO_REMOTE" msprop:Generator_RowChangingName="SYS_INFO_REMOTERowChanging" msprop:Generator_RowEvHandlerName="SYS_INFO_REMOTERowChangeEventHandler" msprop:Generator_RowDeletedName="SYS_INFO_REMOTERowDeleted" msprop:Generator_RowEvArgName="SYS_INFO_REMOTERowChangeEvent" msprop:Generator_RowChangedName="SYS_INFO_REMOTERowChanged" msprop:Generator_RowClassName="SYS_INFO_REMOTERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="_x0040_ZapNo" msprop:Generator_ColumnVarNameInTable="_column_ZapNo" msprop:Generator_ColumnPropNameInRow="@ZapNo" msprop:Generator_ColumnPropNameInTable="@ZapNoColumn" msprop:Generator_UserColumnName="@ZapNo" type="xs:int" />
+              <xs:element name="SerNo" msprop:Generator_ColumnVarNameInTable="columnSerNo" msprop:Generator_ColumnPropNameInRow="SerNo" msprop:Generator_ColumnPropNameInTable="SerNoColumn" msprop:Generator_UserColumnName="SerNo" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="HW_Ver" msprop:Generator_ColumnVarNameInTable="columnHW_Ver" msprop:Generator_ColumnPropNameInRow="HW_Ver" msprop:Generator_ColumnPropNameInTable="HW_VerColumn" msprop:Generator_UserColumnName="HW_Ver" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="SW_Ver" msprop:Generator_ColumnVarNameInTable="columnSW_Ver" msprop:Generator_ColumnPropNameInRow="SW_Ver" msprop:Generator_ColumnPropNameInTable="SW_VerColumn" msprop:Generator_UserColumnName="SW_Ver" type="xs:unsignedInt" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BAFS_PR" />
+      <xs:field xpath="mstns:_x0040_ZapNo" />
+    </xs:unique>
+    <xs:unique name="BAFS_PS_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BAFS_PS" />
+      <xs:field xpath="mstns:_x0040_ZapNo" />
+    </xs:unique>
+    <xs:unique name="BAMOT_PR_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BAMOT_PR" />
+      <xs:field xpath="mstns:_x0040_ZapNo" />
+    </xs:unique>
+    <xs:unique name="BAMOT_PS_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BAMOT_PS" />
+      <xs:field xpath="mstns:_x0040_ZapNo" />
+    </xs:unique>
+    <xs:unique name="BAREM_PR_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BAREM_PR" />
+      <xs:field xpath="mstns:_x0040_ZapNo" />
+    </xs:unique>
+    <xs:unique name="BAREM_PS_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BAREM_PS" />
+      <xs:field xpath="mstns:_x0040_ZapNo" />
+    </xs:unique>
+    <xs:unique name="BASYS_ADDR_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BASYS_ADDR" />
+      <xs:field xpath="mstns:_x0040_ZapNo" />
+    </xs:unique>
+    <xs:unique name="ZSMI31014_EE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ZSMI31014_EE" />
+      <xs:field xpath="mstns:_x0040_ZapNo" />
+    </xs:unique>
+    <xs:unique name="BASYS_S_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BASYS_S" />
+      <xs:field xpath="mstns:_x0040_ZapNo" />
+    </xs:unique>
+    <xs:unique name="SYS_INFO_CHAIR_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SYS_INFO_CHAIR" />
+      <xs:field xpath="mstns:_x0040_ZapNo" />
+    </xs:unique>
+    <xs:unique name="SYS_INFO_REMOTE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SYS_INFO_REMOTE" />
+      <xs:field xpath="mstns:_x0040_ZapNo" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="BASYS_ADDR_BAFS_PR" msdata:parent="BASYS_ADDR" msdata:child="BAFS_PR" msdata:parentkey="_x0040_ZapNo" msdata:childkey="_x0040_ZapNo" msprop:Generator_UserChildTable="BAFS_PR" msprop:Generator_ChildPropName="GetBAFS_PRRows" msprop:Generator_UserParentTable="BASYS_ADDR" msprop:Generator_UserRelationName="BASYS_ADDR_BAFS_PR" msprop:Generator_RelationVarName="relationBASYS_ADDR_BAFS_PR" msprop:Generator_ParentPropName="BASYS_ADDRRow" />
+      <msdata:Relationship name="BASYS_ADDR_BAFS_PS" msdata:parent="BASYS_ADDR" msdata:child="BAFS_PS" msdata:parentkey="_x0040_ZapNo" msdata:childkey="_x0040_ZapNo" msprop:Generator_UserChildTable="BAFS_PS" msprop:Generator_ChildPropName="GetBAFS_PSRows" msprop:Generator_UserParentTable="BASYS_ADDR" msprop:Generator_UserRelationName="BASYS_ADDR_BAFS_PS" msprop:Generator_RelationVarName="relationBASYS_ADDR_BAFS_PS" msprop:Generator_ParentPropName="BASYS_ADDRRow" />
+      <msdata:Relationship name="BASYS_ADDR_BAMOT_PR" msdata:parent="BASYS_ADDR" msdata:child="BAMOT_PR" msdata:parentkey="_x0040_ZapNo" msdata:childkey="_x0040_ZapNo" msprop:Generator_UserChildTable="BAMOT_PR" msprop:Generator_ChildPropName="GetBAMOT_PRRows" msprop:Generator_UserParentTable="BASYS_ADDR" msprop:Generator_UserRelationName="BASYS_ADDR_BAMOT_PR" msprop:Generator_RelationVarName="relationBASYS_ADDR_BAMOT_PR" msprop:Generator_ParentPropName="BASYS_ADDRRow" />
+      <msdata:Relationship name="BASYS_ADDR_BAMOT_PS" msdata:parent="BASYS_ADDR" msdata:child="BAMOT_PS" msdata:parentkey="_x0040_ZapNo" msdata:childkey="_x0040_ZapNo" msprop:Generator_UserChildTable="BAMOT_PS" msprop:Generator_ChildPropName="GetBAMOT_PSRows" msprop:Generator_UserParentTable="BASYS_ADDR" msprop:Generator_UserRelationName="BASYS_ADDR_BAMOT_PS" msprop:Generator_RelationVarName="relationBASYS_ADDR_BAMOT_PS" msprop:Generator_ParentPropName="BASYS_ADDRRow" />
+      <msdata:Relationship name="BASYS_ADDR_BAREM_PR" msdata:parent="BASYS_ADDR" msdata:child="BAREM_PR" msdata:parentkey="_x0040_ZapNo" msdata:childkey="_x0040_ZapNo" msprop:Generator_UserChildTable="BAREM_PR" msprop:Generator_ChildPropName="GetBAREM_PRRows" msprop:Generator_UserParentTable="BASYS_ADDR" msprop:Generator_UserRelationName="BASYS_ADDR_BAREM_PR" msprop:Generator_RelationVarName="relationBASYS_ADDR_BAREM_PR" msprop:Generator_ParentPropName="BASYS_ADDRRow" />
+      <msdata:Relationship name="BASYS_ADDR_BAREM_PS" msdata:parent="BASYS_ADDR" msdata:child="BAREM_PS" msdata:parentkey="_x0040_ZapNo" msdata:childkey="_x0040_ZapNo" msprop:Generator_UserChildTable="BAREM_PS" msprop:Generator_ChildPropName="GetBAREM_PSRows" msprop:Generator_UserParentTable="BASYS_ADDR" msprop:Generator_UserRelationName="BASYS_ADDR_BAREM_PS" msprop:Generator_RelationVarName="relationBASYS_ADDR_BAREM_PS" msprop:Generator_ParentPropName="BASYS_ADDRRow" />
+      <msdata:Relationship name="BASYS_ADDR_BASYS_S" msdata:parent="BASYS_ADDR" msdata:child="BASYS_S" msdata:parentkey="_x0040_ZapNo" msdata:childkey="_x0040_ZapNo" msprop:Generator_UserChildTable="BASYS_S" msprop:Generator_ChildPropName="GetBASYS_SRows" msprop:Generator_UserParentTable="BASYS_ADDR" msprop:Generator_UserRelationName="BASYS_ADDR_BASYS_S" msprop:Generator_RelationVarName="relationBASYS_ADDR_BASYS_S" msprop:Generator_ParentPropName="BASYS_ADDRRow" />
+      <msdata:Relationship name="BASYS_ADDR_ZSMI31014_EE" msdata:parent="BASYS_ADDR" msdata:child="ZSMI31014_EE" msdata:parentkey="_x0040_ZapNo" msdata:childkey="_x0040_ZapNo" msprop:Generator_UserChildTable="ZSMI31014_EE" msprop:Generator_ChildPropName="GetZSMI31014_EERows" msprop:Generator_UserParentTable="BASYS_ADDR" msprop:Generator_UserRelationName="BASYS_ADDR_ZSMI31014_EE" msprop:Generator_RelationVarName="relationBASYS_ADDR_ZSMI31014_EE" msprop:Generator_ParentPropName="BASYS_ADDRRow" />
+      <msdata:Relationship name="BASYS_ADDR_SYS_INFO_CHAIR" msdata:parent="BASYS_ADDR" msdata:child="SYS_INFO_CHAIR" msdata:parentkey="_x0040_ZapNo" msdata:childkey="_x0040_ZapNo" msprop:Generator_UserChildTable="SYS_INFO_CHAIR" msprop:Generator_ChildPropName="GetSYS_INFO_CHAIRRows" msprop:Generator_ParentPropName="BASYS_ADDRRow" msprop:Generator_UserRelationName="BASYS_ADDR_SYS_INFO_CHAIR" msprop:Generator_RelationVarName="relationBASYS_ADDR_SYS_INFO_CHAIR" msprop:Generator_UserParentTable="BASYS_ADDR" />
+      <msdata:Relationship name="BASYS_ADDR_SYS_INFO_REMOTE" msdata:parent="BASYS_ADDR" msdata:child="SYS_INFO_REMOTE" msdata:parentkey="_x0040_ZapNo" msdata:childkey="_x0040_ZapNo" msprop:Generator_UserChildTable="SYS_INFO_REMOTE" msprop:Generator_ChildPropName="GetSYS_INFO_REMOTERows" msprop:Generator_ParentPropName="BASYS_ADDRRow" msprop:Generator_UserRelationName="BASYS_ADDR_SYS_INFO_REMOTE" msprop:Generator_RelationVarName="relationBASYS_ADDR_SYS_INFO_REMOTE" msprop:Generator_UserParentTable="BASYS_ADDR" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

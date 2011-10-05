@@ -1,0 +1,83 @@
+10
+
+dir
+328
+http://nmodbus.googlecode.com/svn/trunk/NModbus/src
+http://nmodbus.googlecode.com/svn
+
+
+
+2009-11-15T18:23:49.938757Z
+328
+sjalex
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+97f8bd50-a619-0410-a575-7b5c649250ac
+
+NModbus.sln
+file
+
+
+
+
+2011-10-05T11:17:26.523617Z
+99f1bed8586388d6b17789ca5a4dec67
+2009-04-28T20:37:17.201917Z
+309
+sjalex
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7407
+
+Test Compact Framework
+dir
+
+MySample
+dir
+
+Modbus.Extensions
+dir
+
+Modbus
+dir
+
+Modbus.UnitTests
+dir
+
+FtdAdapter
+dir
+
+Modbus.IntegrationTests
+dir
+

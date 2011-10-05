@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/299/trunk/NModbus/tools/StyleCop/v4.3
+END
+Microsoft.StyleCop.CSharp.dll
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/299/trunk/NModbus/tools/StyleCop/v4.3/Microsoft.StyleCop.CSharp.dll
+END
+Microsoft.StyleCop.dll
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/299/trunk/NModbus/tools/StyleCop/v4.3/Microsoft.StyleCop.dll
+END
+Microsoft.SourceAnalysis.Targets
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/299/trunk/NModbus/tools/StyleCop/v4.3/Microsoft.SourceAnalysis.Targets
+END
+Settings.StyleCop
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/299/trunk/NModbus/tools/StyleCop/v4.3/Settings.StyleCop
+END
+Microsoft.StyleCop.CSharp.Rules.dll
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/299/trunk/NModbus/tools/StyleCop/v4.3/Microsoft.StyleCop.CSharp.Rules.dll
+END
+StyleCopSettingsEditor.exe
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/299/trunk/NModbus/tools/StyleCop/v4.3/StyleCopSettingsEditor.exe
+END
+Microsoft.StyleCop.Targets
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/299/trunk/NModbus/tools/StyleCop/v4.3/Microsoft.StyleCop.Targets
+END

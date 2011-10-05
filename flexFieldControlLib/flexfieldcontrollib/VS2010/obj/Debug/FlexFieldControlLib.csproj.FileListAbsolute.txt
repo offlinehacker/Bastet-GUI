@@ -1,0 +1,8 @@
+C:\Users\pc1\Programi\TROL_MgmtGui2\TROL_MgmtGui2\flexFieldControlLib\ flexfieldcontrollib\VS2010\bin\Debug\FlexFieldControlLib.dll
+C:\Users\pc1\Programi\TROL_MgmtGui2\TROL_MgmtGui2\flexFieldControlLib\ flexfieldcontrollib\VS2010\bin\Debug\FlexFieldControlLib.pdb
+C:\Users\pc1\Programi\TROL_MgmtGui2\TROL_MgmtGui2\flexFieldControlLib\ flexfieldcontrollib\VS2010\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\pc1\Programi\TROL_MgmtGui2\TROL_MgmtGui2\flexFieldControlLib\ flexfieldcontrollib\VS2010\obj\Debug\FlexFieldControlLib.Properties.Resources.resources
+C:\Users\pc1\Programi\TROL_MgmtGui2\TROL_MgmtGui2\flexFieldControlLib\ flexfieldcontrollib\VS2010\obj\Debug\FlexFieldControlLib.dll
+C:\Users\pc1\Programi\TROL_MgmtGui2\TROL_MgmtGui2\flexFieldControlLib\ flexfieldcontrollib\VS2010\obj\Debug\FlexFieldControlLib.pdb
+C:\Users\pc1\Programi\TROL_MgmtGui2\TROL_MgmtGui2\flexFieldControlLib\ flexfieldcontrollib\VS2010\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\pc1\Programi\TROL_MgmtGui2\TROL_MgmtGui2\flexFieldControlLib\ flexfieldcontrollib\VS2010\obj\Debug\GenerateResource.write.1.tlog

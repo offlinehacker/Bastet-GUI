@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/100/trunk/NModbus/tools/jamod
+END
+TcpSlave.java
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/100/trunk/NModbus/tools/jamod/TcpSlave.java
+END
+TcpSlave.class
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/100/trunk/NModbus/tools/jamod/TcpSlave.class
+END
+jamod.jar
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/58/trunk/NModbus/tools/jamod/jamod.jar
+END
+comm.jar
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/57/trunk/NModbus/tools/jamod/comm.jar
+END
+SerialSlave.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/100/trunk/NModbus/tools/jamod/SerialSlave.java
+END
+win32com.dll
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/88/trunk/NModbus/tools/jamod/win32com.dll
+END
+SerialSlave.class
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/100/trunk/NModbus/tools/jamod/SerialSlave.class
+END
+javax.comm.properties
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/88/trunk/NModbus/tools/jamod/javax.comm.properties
+END

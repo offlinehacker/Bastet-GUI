@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/296/trunk/NModbus/src/MySample
+END
+Driver.cs
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/241/trunk/NModbus/src/MySample/Driver.cs
+END
+App.config
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/64/trunk/NModbus/src/MySample/App.config
+END
+MySample.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/296/trunk/NModbus/src/MySample/MySample.csproj
+END

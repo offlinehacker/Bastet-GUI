@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/299/trunk/NModbus/src/Modbus/Utility
+END
+ModbusUtility.cs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/299/trunk/NModbus/src/Modbus/Utility/ModbusUtility.cs
+END
+DiscriminatedUnion.cs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/298/trunk/NModbus/src/Modbus/Utility/DiscriminatedUnion.cs
+END
