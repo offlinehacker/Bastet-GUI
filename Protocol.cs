@@ -4,15 +4,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
+using System.Runtime.InteropServices; //For Sequential structure layout
 
 namespace TROL_MgmtGui2
 {
+    /// <summary>
+    /// Base header of protocol above link layer.
+    /// </summary>
+    [StructLayout(LayoutKind.Sequential)]
+    class ProtocolHeader{}
+
+    class Packet { }
+
+    /// <summary>
+    /// Layer above LinkLayer, used for data handling.
+    /// </summary>
     class ProtocolLayer
     {
         /// <summary>
         /// Serializer for static header data.
         /// </summary>
-        protected BinarySerializer cHeaderSerializer = new BinarySerializer();
+        public BinarySerializer cHeaderSerializer = new BinarySerializer();
         protected LinkLayer cLinkLayer;
 
         public void SetStaticSerializer(BinarySerializer lStaticSerializer)
@@ -40,17 +52,32 @@ namespace TROL_MgmtGui2
         /// Gets called when new data packet is received.
         /// </summary>
         /// <param name="data">Received data</param>
-        public virtual void LinkLayerCallback(Byte[] data, ref object ProcessedData, ref int DataOffset)
-        {
-            ProcessedData = cHeaderSerializer.DeserializeData(data, DataOffset, ref DataOffset);
-        }
+        public virtual void LinkLayerCallback(LinkLayerHeader lLinkLayerHeader){}
+    }
+
+    /// <summary>
+    /// Base LinkLayer header class.
+    /// </summary>
+    [StructLayout(LayoutKind.Sequential)]
+    class LinkLayerHeader
+    {
+        /// <summary>
+        /// Gets data that is inside LinkLayer
+        /// </summary>
+        /// <returns>Link layer data</returns>
+        public virtual Byte[] GetData() { return null; }
+        /// <summary>
+        /// Gets LinkId if Link layer has support for different devices.
+        /// </summary>
+        /// <returns></returns>
+        public virtual Byte GetLinkId() { return 0; }
     }
 
     /// <summary>
     /// Delegate called when received message from device.
     /// </summary>
     /// <param name="Data">Received data.</param>
-    public delegate void DataReceivedDelegate(Byte[] Data, ref object ProcessedData, ref int DataOffset);
+    delegate void DataReceivedDelegate(LinkLayerHeader lLinkLayerHeader);
 
     /// <summary>
     /// Class for handling link-layer communication.
@@ -80,16 +107,10 @@ namespace TROL_MgmtGui2
         /// Writes data to link layer.
         /// </summary>
         /// <param name="LinkId">Adress of the device.</param>
-        /// <param name="Data">Data to be written.</param>
-        public virtual void Write(int LinkId, Byte[] Data) { }
-        /// <summary>
-        /// Signal the thread that device acknowledged previous message.
-        /// </summary>
-        public virtual void AckReceived() { }
-        /// <summary>
-        /// Info about acknowlegement of previous message
-        /// </summary>
-        public virtual bool IsAckReceived() { return false; }
+        /// <param name="ProtocolHeader">Protocol header. </param>
+        /// <param name="ProtocolHedareData">Data of protocol header.</param>
+        /// <param name="Data">Data</param>
+        public virtual void Write(Packet Packet) { }
 
         /// <summary>
         /// Sets callback delegate for handling received data.

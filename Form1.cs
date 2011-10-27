@@ -8,16 +8,23 @@ using System.Text;
 using System.Windows.Forms;
 using System.Reflection;
 
+using log4net;
+using log4net.Config;
+
 namespace TROL_MgmtGui2
 {
     public partial class Form1 : Form
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(BastetCommunication));
+
         private BastetCommunication cBastetCommunication;
         bool MotorDirection = false;
 
         public Form1()
         {
             InitializeComponent();
+            //Initializes logging
+            XmlConfigurator.Configure(new System.IO.FileInfo("log.cfg"));
             //Adds event handler for adding new row to BASYS_ADDR
             devices.BASYS_ADDR.TableNewRow += new DataTableNewRowEventHandler(new DataTableNewRowEventHandler(BASYS_ADDR_TableNewRow));
             //Fill datasets.
@@ -149,6 +156,11 @@ namespace TROL_MgmtGui2
             {
                 List<object> RemoveParameters= new List<object>();
                 Type TableAdapterType = Type.GetType("TROL_MgmtGui2.BastetParametersDataSetTableAdapters." + table.TableName + "TableAdapter");
+                if (TableAdapterType == null)
+                {
+                    log.Error("Cannot get type for table adapter " + "TROL_MgmtGui2.BastetParametersDataSetTableAdapters." + table.TableName + "TableAdapter");
+                    continue;
+                }
                 object TableAdapter= Activator.CreateInstance(TableAdapterType);
                 if (TableAdapterType.GetMethod("DeleteID").GetParameters().Count() != 1)
                     return false;
@@ -265,9 +277,18 @@ namespace TROL_MgmtGui2
 
         private void Add_Click(object sender, EventArgs e)
         {
+            //No devices in a list.
+            if (deviceListBox.Items.Count == 0)
+            {
+                MessageBox.Show("No devices in a list!");
+                log.Warn("No devices in a list.");
+                return;
+            }
+
             if( devices.Device[deviceListBox.SelectedIndex].DeviceType==(int)DeviceType.Unknown )
             {
                 MessageBox.Show("Device type is not set!");
+                log.Warn("Device type is not set!");
                 return;
             }
 
@@ -275,6 +296,7 @@ namespace TROL_MgmtGui2
             if (toolStripButton1.Checked)
             {
                 MessageBox.Show("You cannot add devices in database mode!");
+                log.Warn("cannot add devices in database mode!");
                 return;
             }
             else
@@ -282,6 +304,7 @@ namespace TROL_MgmtGui2
                 if (bASYS_ADDRDataGridView.SelectedRows.Count == 0)
                 {
                     MessageBox.Show("Row is not selected!");
+                    log.Warn("Row is not selected!");
                     return;
                 }
                 if (devices.Device[deviceListBox.SelectedIndex].DeviceType == (int)DeviceType.Chair)

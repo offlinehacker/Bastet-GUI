@@ -8,10 +8,11 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.InteropServices; //For Sequential structure layout
 using System.Data;
 using NUnit.Framework;
+using log4net;
 
 namespace TROL_MgmtGui2
 {
-    delegate void ProcessReceivedData(string OperationName, BPProtocolHeader lProtocolHeader, object[] DeserializedData);
+    delegate void ProcessReceivedData(string OperationName, BPProtocolHeader lProtocolHeader, Byte lLinkId, object[] DeserializedData);
 
     class BPOperation
     {
@@ -34,9 +35,31 @@ namespace TROL_MgmtGui2
             cOperationGroups = lOperationGroups;
         }
     }
+
+    class BPPacket : Packet
+    {
+        private static readonly ILog log = LogManager.GetLogger(typeof(BPPacket));
+
+        public int LinkId;
+        public BPProtocolHeader BPProtocolHeader;
+        public byte[] BPProtocolHeaderData;
+        public byte[] Data;
+        public int ExpectedLength;
+
+        public BPPacket(int LinkId, BPProtocolHeader BPProtocolHeader, byte[] BPProtocolHeaderData, byte[] Data, int ExpectedLength)
+        {
+            log.Debug("New packet with destination: " + LinkId.ToString() + " and data: " + Data.ToString());
+
+            this.LinkId = (byte)LinkId;
+            this.BPProtocolHeader = BPProtocolHeader;
+            this.BPProtocolHeaderData = BPProtocolHeaderData;
+            this.Data = Data;
+            this.ExpectedLength = ExpectedLength;
+        }
+    }
     
     [StructLayout(LayoutKind.Sequential)]
-    struct BPProtocolHeader
+    class BPProtocolHeader : ProtocolHeader
     {
         public Byte cOperationId;
 
@@ -44,6 +67,8 @@ namespace TROL_MgmtGui2
         {
             cOperationId = lOperationId;
         }
+
+        public BPProtocolHeader(){}
     }
 
     class BPProtocol: ProtocolLayer
@@ -86,27 +111,34 @@ namespace TROL_MgmtGui2
                 return;
 
             //Serializes header data.
-            base.SerializeData(ref StreamToWrite, new object[] {new BPProtocolHeader((byte)lOperation.cSendCode)});
+            BPProtocolHeader lBPProtocolHeader= new BPProtocolHeader((byte)lOperation.cSendCode);
+            base.SerializeData(ref StreamToWrite, new object[] {lBPProtocolHeader});
+
+            int ExpectedLength= lOperation.cDownlinkSerializer.GetSerializedDataLength();
 
             //It allows us to send only a command if data is not set.
+            Byte[] SerializedData = new Byte[0];
             if (data != null && lOperation.cUplinkSerializer!=null)
             {
-                Byte[] SerializedData = lOperation.cUplinkSerializer.SerializeData(data);
+                SerializedData = lOperation.cUplinkSerializer.SerializeData(data);
                 StreamToWrite.Write(SerializedData, 0, SerializedData.Count());
             }
 
-            cLinkLayer.Write(LinkId, StreamToWrite.ToArray());
+            cLinkLayer.Write(new BPPacket( LinkId, lBPProtocolHeader, StreamToWrite.ToArray(), SerializedData, ExpectedLength);
         }
 
         /// <summary>
         /// Gets called when new data packet is received.
         /// </summary>
         /// <param name="data">Received data</param>
-        public override void LinkLayerCallback(Byte[] data, ref object ProcessedData, ref int DataOffset)
+        public override void LinkLayerCallback(LinkLayerHeader lLinkLayerHeader)
         {
-            base.LinkLayerCallback(data, ref ProcessedData, ref DataOffset);
-            BPProtocolHeader lProtocolHeader = (BPProtocolHeader)((object[])ProcessedData)[0];
+            int offset = 0;
 
+            //Deserialize ProtocolLayer header.
+            BPProtocolHeader lProtocolHeader = (BPProtocolHeader)cHeaderSerializer.DeserializeData(lLinkLayerHeader.GetData(), 0, ref offset)[0];
+
+            //Try to find operation by using id in ProtocolHeader
             BPOperation lOperation;
             try
             {
@@ -115,39 +147,68 @@ namespace TROL_MgmtGui2
             catch 
             { return; }
 
+            //If we have DownlinkSerializer, then we deserialize data inside.
             object[] DeserializedData = null;
             if (lOperation.cDownlinkSerializer != null)
             {
-                DeserializedData = lOperation.cDownlinkSerializer.DeserializeData(data, DataOffset, ref DataOffset);
+                DeserializedData = lOperation.cDownlinkSerializer.DeserializeData(lLinkLayerHeader.GetData(), offset, ref offset);
                 if (DeserializedData == null) return;
             }
 
+            //End of deserialization
+
+            //If we have callback routine call it.
             if (lOperation.cCallbackDelegate != null)
-                lOperation.cCallbackDelegate(lOperation.cOperationName, lProtocolHeader, DeserializedData);
+                lOperation.cCallbackDelegate(lOperation.cOperationName, lProtocolHeader, lLinkLayerHeader.GetLinkId(), DeserializedData);
         }
     }
 
-    [TestFixture]
-    class TestBPProtocolOffline
+    [TestFixture(Description="BPPProtocol tests.")]
+    class BPProtocolTest
     {
-        bool called = false;
-        [TestCase]
-        public void SimpleTest()
+        private static BPProtocol protocol = new BPProtocol();
+        private bool calledCorrectly= false;
+        private static BinarySerializer cUplinkSerializer= new BinarySerializer(new Type[] { typeof(string), typeof(Byte[]) });
+        private static BinarySerializer cDownlinkSerializer= new BinarySerializer(new Type[] { typeof(UInt16) });
+
+        class DummyLinkLayer: LinkLayer
         {
-            RawSerial sr = new RawSerial();
-            BPProtocol bp = new BPProtocol();
-            bp.SetLinkLayer(sr);
-            bp.AddOperation(new BPOperation("test", 0, 1, new BinarySerializer(new Type[] { typeof(UInt16), typeof(UInt32) }), new BinarySerializer(new Type[] { typeof(UInt16), typeof(UInt32) }), new ProcessReceivedData(DataLayerRecvCallback)));
-            bp.CallOperation(0, "test", new object[] { 100, 200 });
-            sr.TestCallback2();
-            Assert.AreEqual(called, true);
+            public LinkLayerHeader lastLinkLayer = null;
+
+            public override void Write(int LinkId, Byte[] Data)
+            {
+                //Assert.AreEqual(LinkId, 0);
+
+                int of2 = 0;
+                object[] deserializedData1= protocol.cHeaderSerializer.DeserializeData(Data, 0, ref of2);
+
+                object[] deserializedData2= cUplinkSerializer.DeserializeData(Data, of2, ref of2);
+                Assert.AreEqual(0, deserializedData1[0]);
+                Assert.AreEqual("teststring", deserializedData2[0]);
+                Assert.AreEqual(new Byte[]{1,2,3,4}, deserializedData2[1]);
+            }
+        }
+        private DummyLinkLayer lDummyLinkLayer = new DummyLinkLayer();
+
+        public BPProtocolTest()
+        {
+            protocol.SetLinkLayer(lDummyLinkLayer);
         }
 
-        public void DataLayerRecvCallback(string OperationName, BPProtocolHeader lProtocolHeader, object[] DeserializedData)
+        [Test(Description="Test operation calls")]
+        public void TestOperations()
         {
-            called = true;
-            Assert.AreEqual(lProtocolHeader, new BPProtocolHeader(100,0));
-            Assert.AreEqual(DeserializedData, new object[] { 10, 20 });
+            protocol.AddOperation(new BPOperation("test", 0, 0,
+                cUplinkSerializer,
+                cDownlinkSerializer,
+                new ProcessReceivedData(Callback1)                                ) 
+                );
+
+            protocol.CallOperation(10, "test", new object[]{"teststring", new Byte[]{1,2,3,4}} );
+        }
+
+        private void Callback1(string OperationName, BPProtocolHeader lProtocolHeader, Byte lLinkId, object[] DeserializedData)
+        {
         }
     }
 }

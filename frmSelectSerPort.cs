@@ -10,7 +10,6 @@ namespace TROL_MgmtGui2
 {
     partial class frmSelectSerPort : Form
     {
-        private RawSerial cSerial= null;
         /// <summary>
         /// Gets currently selected port name.
         /// </summary>
@@ -22,13 +21,23 @@ namespace TROL_MgmtGui2
             }
         }
 
-        public frmSelectSerPort( RawSerial lSerial)
+        /// <summary>
+        /// Gets currently selected protocol.
+        /// </summary>
+        public String SelectedProtocol
         {
-            cSerial = lSerial;
+            get
+            {
+                return (String)comboProtocol.SelectedItem;
+            }
+        }
+
+        public frmSelectSerPort()
+        {
             InitializeComponent();
 
             // add all available serial ports to the combobox
-            foreach (String port in cSerial.GetAvailablePorts())
+            foreach (String port in SerialBase.GetAvailablePorts())
                 comboSerPort.Items.Add(port);
         }
 
@@ -41,7 +50,7 @@ namespace TROL_MgmtGui2
         {
             comboSerPort.Items.Clear();
 
-            foreach (String port in cSerial.GetAvailablePorts())
+            foreach (String port in SerialBase.GetAvailablePorts())
                 comboSerPort.Items.Add(port);
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,8 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.InteropServices;
 using NUnit.Framework;
+using log4net;
+using Log4Trace;
 
 namespace TROL_MgmtGui2
 {
@@ -20,13 +23,15 @@ namespace TROL_MgmtGui2
     /// </summary>
     class BinarySerializer
     {
-        Type[] cSerializableTypes = new Type[] { };
+        private static readonly ILog log = LogManager.GetLogger(typeof(BinarySerializer));
+        private Type[] cSerializableTypes = new Type[] { };
 
         public BinarySerializer() { }
 
         public BinarySerializer(Type[] lSerializableTypes)
         {
             cSerializableTypes = lSerializableTypes;
+            if(log.IsDebugEnabled) log.DebugFormat("Created binary serializer for types "+ GetTypeNames());
         }
 
         /// <summary>
@@ -35,7 +40,60 @@ namespace TROL_MgmtGui2
         /// <param name="lSerializableTypes">List of types for sequential serialization.</param>
         public void SetSerializableTypes(Type[] lSerializableTypes)
         {
+            if(log.IsDebugEnabled) log.DebugFormat("Changing serializer types from "+ GetTypeNames()+ " to "+ lSerializableTypes);
             cSerializableTypes = lSerializableTypes;
+        }
+
+        /// <summary>
+        /// Gets string representation of type names
+        /// </summary>
+        /// <returns>string representation of type names</returns>
+        private string GetTypeNames()
+        {
+            string type_names= "";
+            foreach(Type t in cSerializableTypes)
+                type_names+= t.Name+ ",";
+
+            return type_names;
+        }
+
+        /// <summary>
+        /// Gets length of serialized data, if that can be determined.
+        /// </summary>
+        /// <param name="startType">Index of start type.</param>
+        /// <param name="endType">Index of end type.</param>
+        /// <returns>Length of data to be serilized.</returns>
+        public int GetSerializedDataLength(int startType=0, int endType=0)
+        {
+            if (endType == 0)
+                endType = cSerializableTypes.Count();
+
+            //Check the bounds of start and end.
+            if (startType > cSerializableTypes.Count() - 1 || endType > cSerializableTypes.Count())
+            {
+                log.Error("Indexes out of range");
+                return -1;
+            }
+
+            int len = 0;
+            Type CurrentType;
+            for (int x = startType; x < endType; x++)
+            {
+                CurrentType = cSerializableTypes[x];
+                try
+                {
+                    len += Marshal.SizeOf(CurrentType);
+                }
+                catch (Exception e)
+                {
+                    log.Error("Cannot marshal type " + CurrentType.Name);
+                    return -1;
+                }
+
+                log.Debug("Type is " + cSerializableTypes[x].Name + " and length is" + len);
+            }
+
+            return len;
         }
 
         /// <summary>
@@ -48,6 +106,9 @@ namespace TROL_MgmtGui2
             object[] lOutputData = (object[])lSerializableData;
             MemoryStream lStream = new MemoryStream();
             uint ManyParse = 0;
+
+            if (lOutputData.Count() > 0)
+                log.Debug("Serializing type " + cSerializableTypes[0]);
 
             //Allways returns something, it it up to user to verify that data is correrect
             //Counter for types-x is controled by user, since we can initialize many parse.
@@ -80,25 +141,42 @@ namespace TROL_MgmtGui2
                 {
                     case "String":
                         byte[] StringByte = StringToByteArray(data);
-                        if (StringByte == null) return null;
+                        if (StringByte == null)
+                        {
+                            log.Error("Problems while serializing to String type.");
+                            return null;
+                        }
                         lStream.Write(StringByte, 0, StringByte.Count());
                         break;
                     case "Byte[]":
                         Byte[] DataByte= (Byte[])data;
-                        if(data==null) return null;
+                        if(data==null)
+                        {
+                            log.Error("Problems while serializing to Byte[] type");
+                            return null;
+                        }
                         lStream.Write(DataByte, 0, DataByte.Length);
                         break;
                     default:
                         object ConvertedData = Convert.ChangeType(data, CurrentType);
-                        if (ConvertedData == null) return null;
+                        if (ConvertedData == null) 
+                        {
+                            log.Error("Problems while serializing to unknown type");
+                            return null;
+                        }
                         lStream.Write(StructureToByteArray(ConvertedData), 0, StructureToByteArray(ConvertedData).Count());
                         break;
                 }
 
                 if (ManyParse == 0)
+                {
                     x++;
+                    if(cSerializableTypes.Count()>x+1)
+                        log.Debug("Serializing type " + cSerializableTypes[x]);
+                }
             }
 
+            log.Debug("Serialized "+ lStream.Length + " of data.");
             return lStream.ToArray();
         }
 
@@ -109,7 +187,7 @@ namespace TROL_MgmtGui2
         /// <param name="InitalOffset">Offset where you want to start serialization as <see cref="int"/></param>
         /// <param name="NewOffset"Offset where serialization ended as <see cref="int"/></param>
         /// <returns>Serialized objects as <see cref="object[]"/></returns>
-        public virtual object[] DeserializeData(Byte[] lInputData, int InitalOffset, ref int NewOffset)
+        public virtual object[] DeserializeData(Byte[] lInputData, int InitalOffset, ref int NewOffset, int startType = 0, int endType = 0)
         {
             int offset = InitalOffset;
             List<object> OutputStructures = new List<object>();
@@ -117,11 +195,21 @@ namespace TROL_MgmtGui2
             uint ManyParse = 0;
             bool ManyParseCondition = false;
 
-            for(int x=0; x<cSerializableTypes.Count();)//Let the user to control type counter
+            if (endType == 0)
+                endType = cSerializableTypes.Count();
+
+            //Check the bounds of start and end.
+            if (startType > cSerializableTypes.Count() - 1 || endType > cSerializableTypes.Count())
+                return null;
+
+            for (int x = startType; x < endType; )
             {
                 Type CurrentType = cSerializableTypes[x];
                 if (offset >= lInputData.Count())
+                {
+                    log.Error("Offset is bigger than data count");
                     return null;
+                }
 
                 switch (CurrentType.Name)
                 {
@@ -142,7 +230,11 @@ namespace TROL_MgmtGui2
                 {
                     case "String":
                         string strdata = ByteArrayToString(lInputData.Skip(offset).ToArray());
-                        if (strdata == null) return null;
+                        if (strdata == null)
+                        {
+                            log.Error("Problems while deserializing to String");
+                            return null;
+                        }
                         OutputStructures.Add(strdata);
                         loffset = strdata.Length + 1;
                         break;
@@ -152,12 +244,29 @@ namespace TROL_MgmtGui2
                         loffset = bytedata.Length;
                         break;
                     default:
+                        //We must get size or we get error.
                         object result = ByteArrayToStructure(lInputData.Skip(offset).ToArray(), CurrentType, ref loffset);
-                        if (result == null) return null;
+                        if (result == null)
+                        {
+                            List<Type> t= new List<Type>();
+                            foreach (System.Reflection.FieldInfo prop in CurrentType.GetFields())
+                                t.Add(prop.FieldType);
+
+                            object[] allData= (new BinarySerializer(t.ToArray())).DeserializeData(lInputData.Skip(offset).ToArray(), loffset, ref loffset);
+                            int m=0;
+                            object o = Activator.CreateInstance(CurrentType);
+                            foreach (System.Reflection.FieldInfo prop in CurrentType.GetFields())
+                            {
+                                prop.SetValue(o, allData[m]);
+                                m++;
+                            }
+                            log.Error("Problems while deserializing to unkown type");
+                            return null;
+                        }
                         OutputStructures.Add(result);
                         break;
                 }
-
+                
                 offset += loffset;
                 loffset = 0;
 
@@ -177,7 +286,24 @@ namespace TROL_MgmtGui2
             }
 
             NewOffset = offset;
+            log.Debug("Deserialized "+ OutputStructures.Count+ " elements with types; "+ GetStringTypes(OutputStructures.ToArray()));
             return OutputStructures.ToArray();
+        }
+
+        /// <summary>
+        /// Gets string representation of types from objects.
+        /// </summary>
+        /// <param name="objs">List of objects.</param>
+        /// <returns>String representation of types</returns>
+        private string GetStringTypes( object[] objs )
+        {
+            string ret= "";
+            foreach(object obj in objs)
+            {
+                ret+= obj.GetType().Name+", ";
+            }
+
+            return ret;
         }
 
         static byte[] StringToByteArray(object obj)
@@ -234,7 +360,7 @@ namespace TROL_MgmtGui2
                     offset = len;
                 return obj;
             }
-            catch { return null; }
+            catch{ return null; }
         }
     }
 
@@ -336,6 +462,20 @@ namespace TROL_MgmtGui2
             Assert.AreEqual(20, offset);
         }
 
+        [TestCase(Description = "Tests if serializing byte structures works.")]
+        public void TestByteSerialize()
+        {
+            int offset = 0;
+            BinarySerializer serializer = new BinarySerializer();
+            serializer.SetSerializableTypes(new Type[] { typeof(Byte[]) });
+
+            Byte[] input = new Byte[] { 1, 2, 3, 4, 5 };
+            Byte[] export = serializer.SerializeData(new object[] { input });
+
+            object[] import = serializer.DeserializeData(export, 0, ref offset);
+            Assert.AreEqual(input, import[0]);
+        }
+
         [TestCase(Description = "Tests many parse")]
         public void TestManyParse()
         {
@@ -356,6 +496,40 @@ namespace TROL_MgmtGui2
             import = serializer.DeserializeData(export, 0, ref offset);
 
             Assert.AreEqual(TestData, import);
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        class test1
+        {
+            public int a1;
+            public int a2;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        class test2: test1
+        {
+            public int a3;
+            public int a4;
+        }
+
+        [TestCase(Description = "Tests paring of classes")]
+        public void TestClassParse()
+        {
+            BinarySerializer serializer = new BinarySerializer(new Type[] { typeof(test2) });
+            test2 t2= new test2();
+            t2.a1=1;
+            t2.a2=2;
+            t2.a3=3;
+            t2.a4=4;
+
+            int off = 0;
+            byte[] serData= serializer.SerializeData(new object[] { t2 });
+            test2 desData = (test2)serializer.DeserializeData(serData, 0, ref off)[0];
+
+            Assert.AreEqual(t2.a1, desData.a1);
+            Assert.AreEqual(t2.a2, desData.a2);
+            Assert.AreEqual(t2.a3, desData.a3);
+            Assert.AreEqual(t2.a4, desData.a4);
         }
 
         public static Byte[] SumByteArrays(params Byte[][] array)

@@ -1,0 +1,6 @@
+
+Log4Trace/.svn/*
+Log4Trace/bin/*
+Log4Trace/obj/*
+Log4Trace/Properties/.svn/*
+obj/

@@ -7,12 +7,16 @@ using System.Reflection;
 using System.Windows.Forms;
 using System.Threading;
 
+using log4net;
+
 namespace TROL_MgmtGui2
 {
     class BastetCommunication
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(BastetCommunication));
+
         private BPProtocol cBPPRotocol;
-        private RawSerial cSerial;
+        private SerialBase cSerial;
         private Devices cDevices;
         private Form1 cForm1;//Form for invoking gui actions
 
@@ -28,22 +32,48 @@ namespace TROL_MgmtGui2
         /// <returns>True on succesfully open communication, false otherwise.</returns>
         public bool Open()
         {
-            cSerial = new RawSerial();
-            string lSelectedSerialPort="";
-            frmSelectSerPort lSelectSerialPort = new frmSelectSerPort(cSerial);
+            log.Info("Opening communication");
+
+            string lSelectedSerialPort= "";
+            string lSelectedProtocol= "";
+            frmSelectSerPort lSelectSerialPort = new frmSelectSerPort();
             lSelectSerialPort.ShowDialog();
             lSelectedSerialPort = lSelectSerialPort.SelectedPortName;
+            lSelectedProtocol = lSelectSerialPort.SelectedProtocol;
+            log.Info("Selected serial port with name " + lSelectedSerialPort);
+            log.Info("Selected protocol with name " + lSelectedProtocol);
 
+            log.Info("Creating Link layer using " + lSelectedProtocol+ " protocol");
+            if (lSelectedProtocol == "old")
+            {
+                cSerial = new BPSerial();
+            }
+            else
+            {
+                cSerial = new BPSerial();
+            }
+
+            log.Info("Creating BPProtocol stack.");
             cBPPRotocol = new BPProtocol();
-            RegisterProtocolHanders();
-            cBPPRotocol.SetLinkLayer(cSerial);
-            if (!cSerial.Open(lSelectedSerialPort)) return false;
 
+            log.Info("Registering protocol handlers");
+            RegisterProtocolHanders();
+
+            log.Info("Setting link layer");
+            cBPPRotocol.SetLinkLayer(cSerial);
+            if (!cSerial.Open(lSelectedSerialPort))
+            {
+                log.Error("Cannot open serial port");
+                return false;
+            }
+
+            log.Info("Communication opened");
             return true;
         }
 
         public void Close()
         {
+            log.Info("Closing communication");
             cSerial.Close();
         }
 
@@ -166,7 +196,7 @@ namespace TROL_MgmtGui2
                 lMGMT_TESTSerializer,
                 null,
                 null));
-
+             
             cBPPRotocol.AddOperation(new BPOperation("MGMT_SYS_SET_FACTORY_DEFAULT",
                 (int)MgmtCmd.MGMT_SYS_SET_FACTORY_DEFAULT,
                 (int)MgmtCmd.MGMT_SYS_SET_FACTORY_DEFAULT,
@@ -585,12 +615,12 @@ namespace TROL_MgmtGui2
 
     #endregion
     #region RESPONSE_HANDLERS
-        private void ProcessACK(string OperationName, BPProtocolHeader lProtocolHeader, object[] DeserializedData)
+        private void ProcessACK(string OperationName, BPProtocolHeader lProtocolHeader, Byte lLinkId, object[] DeserializedData)
         {
-            cSerial.AckReceived();
+            ((BPSerial)cSerial).AckReceived();
         }
 
-        private void ProcessGetPeers(string OperationName, BPProtocolHeader lProtocolHeader, object[] DeserializedData)
+        private void ProcessGetPeers(string OperationName, BPProtocolHeader lProtocolHeader, Byte lLinkId, object[] DeserializedData)
         {
             cForm1.Invoke((MethodInvoker)delegate
             {
@@ -604,23 +634,26 @@ namespace TROL_MgmtGui2
             });
         }
 
-        private void ProcessNewPeer(string OperationName, BPProtocolHeader lProtocolHeader, object[] DeserializedData)
+        private void ProcessNewPeer(string OperationName, BPProtocolHeader lProtocolHeader, Byte lLinkId, object[] DeserializedData)
         {
+            log.Info("Processing new peer with LinkId "+ lLinkId);
             cForm1.Invoke((MethodInvoker)delegate
             {
-                DataRow[] rows = cDevices.Device.Select("LinkId=" + lProtocolHeader.cLinkId.ToString());
+                DataRow[] rows = cDevices.Device.Select("LinkId=" + lLinkId.ToString());
                 if(rows.Count()>0)
                     return;
-                cDevices.Device.AddDeviceRow(lProtocolHeader.cLinkId, (Byte)DeviceType.Unknown);
+                cDevices.Device.AddDeviceRow(lLinkId, (Byte)DeviceType.Unknown);
             });
         }
 
-        private void ProcessDeviceType(string OperationName, BPProtocolHeader lProtocolHeader, object[] DeserializedData)
+        private void ProcessDeviceType(string OperationName, BPProtocolHeader lProtocolHeader, Byte lLinkId, object[] DeserializedData)
         {
+            log.Info("Processing device type of peer "+ lLinkId);
+            log.Info("Device type is " + ((byte)DeserializedData[0]).ToString());
             cForm1.Invoke((MethodInvoker)delegate
             {
                 //EnumerableRowCollection<Devices.DeviceRow> rows = (from n in cDevices.Device where n.DeviceAddress == lProtocolHeader.cLinkId select n);
-                DataRow[] rows = cDevices.Device.Select("LinkId=" + lProtocolHeader.cLinkId.ToString());
+                DataRow[] rows = cDevices.Device.Select("LinkId=" + lLinkId.ToString());
                 if (rows.Count() == 0)
                     return;
                 Devices.DeviceRow Row = (Devices.DeviceRow)rows[0];
@@ -632,7 +665,7 @@ namespace TROL_MgmtGui2
             });
         }
 
-        private void ProcessTableData(string OperationName, BPProtocolHeader lProtocolHeader, object[] DeserializedData)
+        private void ProcessTableData(string OperationName, BPProtocolHeader lProtocolHeader, Byte lLinkId, object[] DeserializedData)
         {
             //We are dirty again, make another implementation!!!
             string TableName = OperationName.Substring(0, OperationName.Length - 5);
@@ -649,7 +682,7 @@ namespace TROL_MgmtGui2
             if (!ret)
                 return;
 
-            DataRow[] BasysRows=cDevices.BASYS_ADDR.Select("IDChair=" + lProtocolHeader.cLinkId);
+            DataRow[] BasysRows=cDevices.BASYS_ADDR.Select("IDChair=" + lLinkId);
             if (BasysRows.Count() == 0)
                 return;
 
@@ -671,7 +704,7 @@ namespace TROL_MgmtGui2
             });
         }
 
-        private void ProcessGetWeight(string OperationName, BPProtocolHeader lProtocolHeader, object[] DeserializedData)
+        private void ProcessGetWeight(string OperationName, BPProtocolHeader lProtocolHeader, Byte lLinkId, object[] DeserializedData)
         {
             cForm1.Invoke((MethodInvoker)delegate
             {

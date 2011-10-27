@@ -32,6 +32,8 @@ namespace TROL_MgmtGui2
             this.comboSerPort = new System.Windows.Forms.ComboBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboProtocol = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblSelectPort
@@ -73,13 +75,35 @@ namespace TROL_MgmtGui2
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Protocol:";
+            // 
+            // comboProtocol
+            // 
+            this.comboProtocol.FormattingEnabled = true;
+            this.comboProtocol.Items.AddRange(new object[] {
+            "Old",
+            "Modbus"});
+            this.comboProtocol.Location = new System.Drawing.Point(106, 35);
+            this.comboProtocol.Name = "comboProtocol";
+            this.comboProtocol.Size = new System.Drawing.Size(121, 21);
+            this.comboProtocol.TabIndex = 5;
+            // 
             // frmSelectSerPort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(401, 45);
+            this.ClientSize = new System.Drawing.Size(401, 68);
+            this.Controls.Add(this.comboProtocol);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.comboSerPort);
@@ -102,5 +126,7 @@ namespace TROL_MgmtGui2
         private System.Windows.Forms.ComboBox comboSerPort;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboProtocol;
     }
 }

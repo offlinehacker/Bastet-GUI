@@ -97,8 +97,8 @@
             System.Windows.Forms.Label hW_VerLabel1;
             System.Windows.Forms.Label sW_VerLabel1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.devices = new TROL_MgmtGui2.Devices();
             this.bASYS_ADDRBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bASYS_ADDRBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
@@ -1238,18 +1238,18 @@
             // IDChair
             // 
             this.IDChair.DataPropertyName = "IDChair";
-            dataGridViewCellStyle5.Format = "x";
-            dataGridViewCellStyle5.NullValue = null;
-            this.IDChair.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Format = "x";
+            dataGridViewCellStyle3.NullValue = null;
+            this.IDChair.DefaultCellStyle = dataGridViewCellStyle3;
             this.IDChair.HeaderText = "IDChair";
             this.IDChair.Name = "IDChair";
             // 
             // IDRemote
             // 
             this.IDRemote.DataPropertyName = "IDRemote";
-            dataGridViewCellStyle6.Format = "x";
-            dataGridViewCellStyle6.NullValue = null;
-            this.IDRemote.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Format = "x";
+            dataGridViewCellStyle4.NullValue = null;
+            this.IDRemote.DefaultCellStyle = dataGridViewCellStyle4;
             this.IDRemote.HeaderText = "IDRemote";
             this.IDRemote.Name = "IDRemote";
             // 
@@ -2981,7 +2981,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1018, 730);
+            this.ClientSize = new System.Drawing.Size(1018, 622);
             this.Controls.Add(this.groupBox14);
             this.Controls.Add(this.groupBox13);
             this.Controls.Add(this.groupBox9);

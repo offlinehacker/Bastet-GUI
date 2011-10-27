@@ -39,6 +39,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\FlexFieldControlLib.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>Log4Trace\bin\Debug\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Modbus">
       <HintPath>nmodbus\NModbus\tools\nmodbus\Modbus.dll</HintPath>
     </Reference>
@@ -66,9 +69,11 @@
     </Compile>
     <Compile Include="BinarySerializer.cs" />
     <Compile Include="BPProtocol.cs" />
+    <Compile Include="BPSerial.cs" />
     <Compile Include="Communication.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="ModbusSer.cs" />
+    <Compile Include="BPModbus.cs" />
+    <Compile Include="Util.cs" />
     <Compile Include="VersionControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -135,6 +140,8 @@
     <None Include="BastetParametersDataSet.xss">
       <DependentUpon>BastetParametersDataSet.xsd</DependentUpon>
     </None>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="Devices.xsc">
       <DependentUpon>Devices.xsd</DependentUpon>
     </None>
@@ -202,6 +209,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\UpArrow_Red.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Log4Trace\Log4Trace.csproj">
+      <Project>{178A40A1-061B-4FA4-8DB6-7972AF5B3A48}</Project>
+      <Name>Log4Trace</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
